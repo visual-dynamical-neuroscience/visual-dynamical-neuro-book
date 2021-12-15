@@ -1,0 +1,371 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prolegomena: The Mathematical Modeling of Nature &#8212; A Visual Introduction to Dynamical Neuroscience</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="shortcut icon" href="_static/logo.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Chapter 1: A Neurobiology Primer" href="Chapter_1_A_Neurobiology_Primer.html" />
+    <link rel="prev" title="Welcome to the Course" href="intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">A Visual Introduction to Dynamical Neuroscience</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Welcome to the Course
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Prolegomena: The Mathematical Modeling of Nature
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Chapter_1_A_Neurobiology_Primer.html">
+   Chapter 1: A Neurobiology Primer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Chapter_2_Bioelectricity.html">
+   Chapter 2: Bioelectricity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Chapter_3_A_Calculus_and_Linear_Algebra_Primer.html">
+   Chapter 3: A Calculus and Linear Algebra Primer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Chapter_4_An_Introduction_to_DST.html">
+   Chapter 4: An Introduction to Dynamical Systems Theory
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Prolegomena.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-modeling-anyway-and-why-do-we-do-it">
+   What is Modeling Anyway? And Why do We do It?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-difference-between-theories-and-models">
+     The Difference Between Theories and Models
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-spectrum-of-formality">
+     A Spectrum of Formality
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-mythology-of-scientists">
+     The Mythology of Scientists
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-more-sober-view">
+     A More Sober View
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-math-is-not-the-territory">
+   The Math is Not the Territory
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-siren-song-of-mathematics">
+     The Siren Song of Mathematics
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="prolegomena-the-mathematical-modeling-of-nature">
+<h1>Prolegomena: The Mathematical Modeling of Nature<a class="headerlink" href="#prolegomena-the-mathematical-modeling-of-nature" title="Permalink to this headline">¶</a></h1>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>This book was initially prepared on short notice and is an ongoing, ever-evolving project. Many of the ideas, simulations, and visualizations here are incomplete, and most are missing citations. If you feel that I have neglected to cite the proper sources, please do not be offended. It is more than likely that I am in the processes of adding the relevant citations.</p>
+</div>
+<div class="section" id="what-is-modeling-anyway-and-why-do-we-do-it">
+<h2>What is Modeling Anyway? And Why do We do It?<a class="headerlink" href="#what-is-modeling-anyway-and-why-do-we-do-it" title="Permalink to this headline">¶</a></h2>
+<p>This is not a course on the philosophy of science, nor is it a course on the philosophy of mathematics. However, we’ll need a little bit of both to understand what we’re doing here and why it’s important. Why philosophy? It’s common for young scientists (and even many older ones!) to be skeptical of the role of philosophy in scientific practice. This is understandable. They are interested in <em>phenomena</em> like the spread of viruses or the formation of stars, not armchair ideas about human nature and the meaning of life. But philosophy is about so much more than these tropes.</p>
+<p>So many courses and textbooks simply dive right in to their subject matter without explicitly providing context. Why are we studying this topic? How can a working knowledge of this subject help me think about and solve problems that matter to me? How does this subject relate to all the others I am studying? When these questions go unanswered, students are likely to traverse the course in a bit of a daze, trying to piece together the big picture. Philosophy is about answering questions like these, but on a much grander scale than any single course or subject.</p>
+<p>There is a continuum between philosophy and theoretical science.</p>
+<p>Why do we need models? Surely everything we want to know about the world can be discovered by gathering data in experiments?</p>
+<p>The most clear motivation for the use of models (and theory in general) is that there are questions we can pose about the world that simply cannot be answered without a model. One such question is “What was the size of the Earth’s human population in the Paleolithic era (2.5 million years ago)?”. As it turns out, there’s not much data we can actually gather to directly answer a question like this. Unlike today, where we can directly answer the question “How many humans are there on Earth?” by collecting census data, we cannot go out and count Paleolithic people. To make use of the indirect data we do have, we need a way to relate that data to the quantity we actually care about, namely, the number of living people on Earth during the Paleolithic period.</p>
+<p>Each of the different kinds of data available to us necessitates a different kind of model. One method, the Cologne Protocol, combines data such as radio carbon dating, burial ground reconstructions, nutritional carrying capacity of regions, and sizes of ancient settlements to estimate the size of the human population during a given period using a statistical model that relates those variables to population size based on what we know of modern human populations. An entirely different procedure attempts to use human genomic data to estimate the size of ancient human populations by fitting statistical models of genetic mutation in human populations using current human genome data. In both methods, one has to use data from our time to fit mathematical models that generate highly uncertain estimates of ancient human population sizes. But for questions like these, there is no other way.</p>
+<p>One of the dangers of writing on a topic you’re familiar with is that you can wax poetic about it for many paragraphs. Though this might work great for other people who are just as familiar with the topic, writing this way makes it easy to lose the attention of newcomers. Often, starting with broad strokes and concrete exposition is the best strategy for introducing someone to a new subject. So before we spiral down into the nitty gritty details, let’s begin with some definitions.</p>
+<div class="section" id="the-difference-between-theories-and-models">
+<h3>The Difference Between Theories and Models<a class="headerlink" href="#the-difference-between-theories-and-models" title="Permalink to this headline">¶</a></h3>
+<p>One sometimes sees the words “theory” and “model” used interchangeably in the scientific literature. However, there is an important distinction between theories and models. I could sit for hours staring at my computer screen trying to synthesize definitions for the nebulous concepts “theory” and “model” from everything I have read on the matter. Or, I can blatantly steal these (necessarily loose) definitions from somebody who has already stated them better than I ever could. In this case, we’re going to steal from Dr. Eiko Fried, a psychologist and methodologist at Leiden University. Here’s what he has to say about theories:</p>
+<blockquote>
+<div><p>Theories are bodies of knowledge that are broad in scope and aim to explain phenomena. As I said before, phenomena are robust features of the world. Phenomena can be obtained by observation and common sense (e.g. humans have capacity for language), or by other means, such as fitting statistical models to data (e.g. there is a statistical relation between smoking at time 1 and lung cancer at time 2). Data may contain the phenomenon we are interested in, but also noise (measurement error, experimenter bias, transcription errors). That is why theories explain phenomena, not data…</p>
+</div></blockquote>
+<p>And here’s what he has to say about models:</p>
+<blockquote>
+<div><p>Models, on the other hand, are instantiations of theories, narrower in scope and often more concrete, commonly applied to a particular aspect of a given theory, providing a more local description or understanding of a phenomenon. Evolution and gravitation are theories, but their application to mate selection and the motion of the planets is best done via models. From this perspective, models serve as intermediaries between theories and the real world.</p>
+</div></blockquote>
+<p>We’ll return a little later to analyze Fried’s last statement about models being intermediaries between theories and the real world, as well as what exactly constitutes a “body of knowledge”, but for now these are more than serviceable working definitions of theories and models.</p>
+<p>One can make further distinctions between <em>statistical models</em> and <em>mechanistic models</em>.</p>
+<p>It is just as helpful to provide negative examples of what we mean by “theory” as it is to provide postive ones, examples of what approaches to theory we wish to avoid. A perfect example of the kind of theory I do not advocate for is provided by Wilfred Stein and Francisco Varela in their description of a pseudo-fictional man they call the “anti-hero of theoretical biology”:</p>
+<blockquote>
+<div><p>To speak of anti-heroes is also a good way of communicating the same point in a negative sense, but it is also more sensitive, and we shall invoke no names. But here is a typical profile. An excellent researcher obtains glory and academic power by steady production in one narrow field of biology, say, the characterization of a particular kind of enzyme. Once installed in this position of power, and usually in his early sixties, our scientist begins to do what he calls “thinking”. Instead of there being an imaginative productive circulation between his laboratory experience and mature imagination, this “thinking” turns into a rather flat repetition of common sense or, worse still, into some very high level speculation about the nature of the soul or about the future of mankind. This is an anti-hero who neither does a service to the field he is familiar with nor to biology at large. Instead, “theory” becomes a mere sociological loophole that allows for a public tribune. We wish to distance theoretical biology from such secondary production. Thinking about biology is the very stuff of <em>doing</em> research, not an afterthought in someone’s career or a social adornment. - Wilfred Stein and Francisco Varela, <em>Thinking About Biology: An Introductory Essay</em></p>
+</div></blockquote>
+<p>In the same essay</p>
+</div>
+<div class="section" id="a-spectrum-of-formality">
+<h3>A Spectrum of Formality<a class="headerlink" href="#a-spectrum-of-formality" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="the-mythology-of-scientists">
+<h3>The Mythology of Scientists<a class="headerlink" href="#the-mythology-of-scientists" title="Permalink to this headline">¶</a></h3>
+<p>Recall Eiko Fried’s earlier statement that “models serve as intermediaries between theories and the real world”.</p>
+</div>
+<div class="section" id="a-more-sober-view">
+<h3>A More Sober View<a class="headerlink" href="#a-more-sober-view" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="the-math-is-not-the-territory">
+<h2>The Math is Not the Territory<a class="headerlink" href="#the-math-is-not-the-territory" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="the-siren-song-of-mathematics">
+<h3>The Siren Song of Mathematics<a class="headerlink" href="#the-siren-song-of-mathematics" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id1">
+<h3><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Welcome to the Course</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Chapter_1_A_Neurobiology_Primer.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 1: A Neurobiology Primer</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Noah Guzmán<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

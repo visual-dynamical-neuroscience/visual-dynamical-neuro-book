@@ -1,0 +1,11 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+chapters:
+- file: Prolegomena
+- file: Chapter_1_A_Neurobiology_Primer
+- file: Chapter_2_Bioelectricity
+- file: Chapter_3_A_Calculus_and_Linear_Algebra_Primer
+- file: Chapter_4_An_Introduction_to_DST
