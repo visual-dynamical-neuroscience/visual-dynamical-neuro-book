@@ -79,7 +79,7 @@ The idea that models represent the world is apparent in Eiko Fried's earlier sta
 
 #### Rosen's Modeling Relation: The Myth of Correspondence
 
-Though there exist many diverse accounts of the idea that scientific models serve as representations of the world, each of these accounts sufficiently resembles the others so that we only need to look at one in depth. The account we'll look at is loved by many in the life sciences, first developed by the theoretical biologist Robert Rosen. Rosen starts out by characterizing what he calls "natural systems":
+Though there exist many diverse accounts of the idea that scientific models serve as representations of the world, each of these accounts sufficiently resembles the others so that we only need to look at one in depth. The account we'll look at is loved by many in the life sciences, first developed by the theoretical biologist Robert Rosen. In his book *Anticipatory Systems*, Rosen starts out by characterizing what he calls "natural systems":
 
 > Roughly speaking, a natural system comprises some aspect of the external world which we wish to study... It is perhaps best to begin our discussion of natural systems with our fundamental awareness of sensory impressions, which we shall collectively call *percepts*. These percepts are the basic stuff of science. It is at least plausible for us to believe that we do not entirely create these percepts, but rather discover them, through our experience of them. If we do not create them, then their source must lie, at least in part, outside of us, and thus we are led to the idea of an *external world*... The first obvious step in our characterization of a natural system can then be stated: *a natural system is a member or element of the external world*.
 
