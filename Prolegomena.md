@@ -1,7 +1,26 @@
+---
+jupytext:
+  text_representation:
+    extension: .md
+    format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.11.5
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
 # Prolegomena: The Mathematical Modeling of Nature
 
 ```{caution} This book was initially prepared on short notice and is an ongoing, ever-evolving project. Many of the ideas, simulations, and visualizations here are incomplete, and most are missing citations. If you feel that I have neglected to cite the proper sources, please do not be offended. It is more than likely that I am in the processes of adding the relevant citations.
 ```
+
+```{code-cell} ipython3
+:tags: [remove-cell]
+from IPython.display import YouTubeVideo
+```
+
 
 ## What is Modeling Anyway, and Why do We do It?
 
@@ -94,7 +113,14 @@ But does every mathematical entity and operation in a model really correspond to
 
 5. **Different formulations of the same theory.** Often, there are many different mathematical formulations of the same theory that are not equivalent to each other. If models represent, if they truly correspond to things and processes in natural systems, then surely different models of the same system should correspond to each other in the same way, right? But this is not the case.
 
-There are several more reasons, all interrelated, why we should doubt that mathematical models do not represent the world. What, then, is the relationship of mathematical models to the systems they purport to be models of? In the next section, we will explore an alternative way of thinking about mathematical models and how they relate to the phenomena we study.
+There are several more reasons, all interrelated, why we should doubt that mathematical models represent the world. If you would like to know more about these reasons, check out the lecture below by Erik Curiel:
+
+```{code-cell} ipython3
+:tags: [hide-input]
+YouTubeVideo("aA_T20HAzyY", width=800, height=450)
+```
+
+What, then, is the relationship of mathematical models to the systems they purport to be models of? In the next section, we will explore an alternative way of thinking about mathematical models and how they relate to the phenomena we study.
 
 #### The Math is Not the Territory
 

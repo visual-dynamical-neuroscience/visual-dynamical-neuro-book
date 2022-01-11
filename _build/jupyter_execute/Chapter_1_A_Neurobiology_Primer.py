@@ -17,10 +17,19 @@
 
 # ## The Facts of the Matter
 # 
+# Despite wanting to present biology as more than just a stamp collection or list of facts to memorize, we do need a shared vocabulary and set of concepts to work with before we can start doing some modeling. In this section, I hope to provide an engaging overview of a few biological principles that will aid in your understanding of neurobiology. So that you don't get overwhelmed or find yourself asking why you need to know any of this, I have chosen to cover only what you'll need to understand the models we'll be working with. Unfortunately, this means I'll be glossing over a whole universe of interesting phenomena and processes that are critically important for appreciating and explaining the full complexity of life. Hopefully, there's enough information here for you to fill in the details with your own research.
+# 
 # ### Cells
 # 
+# I will assume that the vast majority of you will at some point have taken a middle school or high school biology class so that I can comfortably use the word "cell" without having to explicitly define it.
 # 
 # ### Biological Macromolecules
+# 
+# 
+# ### Are Cells Machines?
+# 
+# 
+# ### Nervous Systems
 
 # In[ ]:
 
