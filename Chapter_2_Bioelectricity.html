@@ -240,8 +240,8 @@
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#batteries">
-       Batteries
+      <a class="reference internal nav-link" href="#electromotive-force">
+       Electromotive Force
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
@@ -281,23 +281,20 @@
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-resting-membrane-potential">
-   The Resting Membrane Potential
+  <a class="reference internal nav-link" href="#ion-channels-as-resistors">
+   Ion Channels as Resistors
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-menagerie-of-ion-channels">
+     A Menagerie of Ion Channels
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-cell-membrane-as-capacitor">
    The Cell Membrane as Capacitor
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ion-channels-as-resistors">
-   Ion Channels as Resistors
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#a-menagerie-of-ion-channels">
-   A Menagerie of Ion Channels
   </a>
  </li>
 </ul>
@@ -317,7 +314,361 @@
 <p class="admonition-title">Caution</p>
 <p>This book was initially prepared on short notice and is an ongoing, ever-evolving project. Many of the ideas, simulations, and visualizations here are incomplete, and most are missing citations. If you feel that I have neglected to cite the proper sources, please do not be offended. It is more than likely that I am in the processes of adding the relevant citations.</p>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$$
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Scientific computing</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Web friendly plotting with Bokeh</span>
+<span class="kn">from</span> <span class="nn">bokeh.models</span> <span class="kn">import</span> <span class="n">ColorBar</span><span class="p">,</span> <span class="n">ColumnDataSource</span><span class="p">,</span> <span class="n">Title</span><span class="p">,</span> <span class="n">BoxAnnotation</span><span class="p">,</span> <span class="n">Span</span><span class="p">,</span> <span class="n">Legend</span><span class="p">,</span> <span class="n">LabelSet</span><span class="p">,</span> <span class="n">CategoricalColorMapper</span>
+<span class="kn">from</span> <span class="nn">bokeh.palettes</span> <span class="kn">import</span> <span class="n">Viridis256</span><span class="p">,</span> <span class="n">Magma256</span><span class="p">,</span> <span class="n">Turbo256</span><span class="p">,</span> <span class="n">Cividis256</span><span class="p">,</span> <span class="n">Colorblind</span>
+<span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">figure</span><span class="p">,</span> <span class="n">output_file</span><span class="p">,</span> <span class="n">show</span>
+<span class="kn">from</span> <span class="nn">bokeh.transform</span> <span class="kn">import</span> <span class="n">linear_cmap</span><span class="p">,</span> <span class="n">cumsum</span><span class="p">,</span> <span class="n">CumSum</span>
+<span class="kn">from</span> <span class="nn">bokeh.layouts</span> <span class="kn">import</span> <span class="n">row</span><span class="p">,</span> <span class="n">gridplot</span><span class="p">,</span> <span class="n">layout</span>
+<span class="kn">import</span> <span class="nn">bokeh.io</span>
+<span class="n">bokeh</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">output_notebook</span><span class="p">()</span>
+
+<span class="c1"># Matplotlib, for when Bokeh fails</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">ticker</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/noahguzman/anaconda3/lib/python3.7/site-packages/numpy/__init__.py:156: UserWarning: mkl-service package failed to import, therefore Intel(R) MKL initialization ensuring its correct out-of-the box operation under condition when Gnu OpenMP had already been loaded by Python process is not assured. Please install mkl-service package, see http://github.com/IntelPython/mkl-service
+  from . import _distributor_init
+</pre></div>
+</div>
+<div class="output text_html">
+<div class="bk-root">
+    <a href="https://bokeh.org" target="_blank" class="bk-logo bk-logo-small bk-logo-notebook"></a>
+    <span id="1002">Loading BokehJS ...</span>
+</div></div><script type="application/javascript">
+(function(root) {
+  function now() {
+    return new Date();
+  }
+
+  const force = true;
+
+  if (typeof root._bokeh_onload_callbacks === "undefined" || force === true) {
+    root._bokeh_onload_callbacks = [];
+    root._bokeh_is_loading = undefined;
+  }
+
+  const JS_MIME_TYPE = 'application/javascript';
+  const HTML_MIME_TYPE = 'text/html';
+  const EXEC_MIME_TYPE = 'application/vnd.bokehjs_exec.v0+json';
+  const CLASS_NAME = 'output_bokeh rendered_html';
+
+  /**
+   * Render data to the DOM node
+   */
+  function render(props, node) {
+    const script = document.createElement("script");
+    node.appendChild(script);
+  }
+
+  /**
+   * Handle when an output is cleared or removed
+   */
+  function handleClearOutput(event, handle) {
+    const cell = handle.cell;
+
+    const id = cell.output_area._bokeh_element_id;
+    const server_id = cell.output_area._bokeh_server_id;
+    // Clean up Bokeh references
+    if (id != null && id in Bokeh.index) {
+      Bokeh.index[id].model.document.clear();
+      delete Bokeh.index[id];
+    }
+
+    if (server_id !== undefined) {
+      // Clean up Bokeh references
+      const cmd_clean = "from bokeh.io.state import curstate; print(curstate().uuid_to_server['" + server_id + "'].get_sessions()[0].document.roots[0]._id)";
+      cell.notebook.kernel.execute(cmd_clean, {
+        iopub: {
+          output: function(msg) {
+            const id = msg.content.text.trim();
+            if (id in Bokeh.index) {
+              Bokeh.index[id].model.document.clear();
+              delete Bokeh.index[id];
+            }
+          }
+        }
+      });
+      // Destroy server and session
+      const cmd_destroy = "import bokeh.io.notebook as ion; ion.destroy_server('" + server_id + "')";
+      cell.notebook.kernel.execute(cmd_destroy);
+    }
+  }
+
+  /**
+   * Handle when a new output is added
+   */
+  function handleAddOutput(event, handle) {
+    const output_area = handle.output_area;
+    const output = handle.output;
+
+    // limit handleAddOutput to display_data with EXEC_MIME_TYPE content only
+    if ((output.output_type != "display_data") || (!Object.prototype.hasOwnProperty.call(output.data, EXEC_MIME_TYPE))) {
+      return
+    }
+
+    const toinsert = output_area.element.find("." + CLASS_NAME.split(' ')[0]);
+
+    if (output.metadata[EXEC_MIME_TYPE]["id"] !== undefined) {
+      toinsert[toinsert.length - 1].firstChild.textContent = output.data[JS_MIME_TYPE];
+      // store reference to embed id on output_area
+      output_area._bokeh_element_id = output.metadata[EXEC_MIME_TYPE]["id"];
+    }
+    if (output.metadata[EXEC_MIME_TYPE]["server_id"] !== undefined) {
+      const bk_div = document.createElement("div");
+      bk_div.innerHTML = output.data[HTML_MIME_TYPE];
+      const script_attrs = bk_div.children[0].attributes;
+      for (let i = 0; i < script_attrs.length; i++) {
+        toinsert[toinsert.length - 1].firstChild.setAttribute(script_attrs[i].name, script_attrs[i].value);
+        toinsert[toinsert.length - 1].firstChild.textContent = bk_div.children[0].textContent
+      }
+      // store reference to server id on output_area
+      output_area._bokeh_server_id = output.metadata[EXEC_MIME_TYPE]["server_id"];
+    }
+  }
+
+  function register_renderer(events, OutputArea) {
+
+    function append_mime(data, metadata, element) {
+      // create a DOM node to render to
+      const toinsert = this.create_output_subarea(
+        metadata,
+        CLASS_NAME,
+        EXEC_MIME_TYPE
+      );
+      this.keyboard_manager.register_events(toinsert);
+      // Render to node
+      const props = {data: data, metadata: metadata[EXEC_MIME_TYPE]};
+      render(props, toinsert[toinsert.length - 1]);
+      element.append(toinsert);
+      return toinsert
+    }
+
+    /* Handle when an output is cleared or removed */
+    events.on('clear_output.CodeCell', handleClearOutput);
+    events.on('delete.Cell', handleClearOutput);
+
+    /* Handle when a new output is added */
+    events.on('output_added.OutputArea', handleAddOutput);
+
+    /**
+     * Register the mime type and append_mime function with output_area
+     */
+    OutputArea.prototype.register_mime_type(EXEC_MIME_TYPE, append_mime, {
+      /* Is output safe? */
+      safe: true,
+      /* Index of renderer in `output_area.display_order` */
+      index: 0
+    });
+  }
+
+  // register the mime type if in Jupyter Notebook environment and previously unregistered
+  if (root.Jupyter !== undefined) {
+    const events = require('base/js/events');
+    const OutputArea = require('notebook/js/outputarea').OutputArea;
+
+    if (OutputArea.prototype.mime_types().indexOf(EXEC_MIME_TYPE) == -1) {
+      register_renderer(events, OutputArea);
+    }
+  }
+
+  
+  if (typeof (root._bokeh_timeout) === "undefined" || force === true) {
+    root._bokeh_timeout = Date.now() + 5000;
+    root._bokeh_failed_load = false;
+  }
+
+  const NB_LOAD_WARNING = {'data': {'text/html':
+     "<div style='background-color: #fdd'>\n"+
+     "<p>\n"+
+     "BokehJS does not appear to have successfully loaded. If loading BokehJS from CDN, this \n"+
+     "may be due to a slow or bad network connection. Possible fixes:\n"+
+     "</p>\n"+
+     "<ul>\n"+
+     "<li>re-rerun `output_notebook()` to attempt to load from CDN again, or</li>\n"+
+     "<li>use INLINE resources instead, as so:</li>\n"+
+     "</ul>\n"+
+     "<code>\n"+
+     "from bokeh.resources import INLINE\n"+
+     "output_notebook(resources=INLINE)\n"+
+     "</code>\n"+
+     "</div>"}};
+
+  function display_loaded() {
+    const el = document.getElementById("1002");
+    if (el != null) {
+      el.textContent = "BokehJS is loading...";
+    }
+    if (root.Bokeh !== undefined) {
+      if (el != null) {
+        el.textContent = "BokehJS " + root.Bokeh.version + " successfully loaded.";
+      }
+    } else if (Date.now() < root._bokeh_timeout) {
+      setTimeout(display_loaded, 100)
+    }
+  }
+
+
+  function run_callbacks() {
+    try {
+      root._bokeh_onload_callbacks.forEach(function(callback) {
+        if (callback != null)
+          callback();
+      });
+    } finally {
+      delete root._bokeh_onload_callbacks
+    }
+    console.debug("Bokeh: all callbacks have finished");
+  }
+
+  function load_libs(css_urls, js_urls, callback) {
+    if (css_urls == null) css_urls = [];
+    if (js_urls == null) js_urls = [];
+
+    root._bokeh_onload_callbacks.push(callback);
+    if (root._bokeh_is_loading > 0) {
+      console.debug("Bokeh: BokehJS is being loaded, scheduling callback at", now());
+      return null;
+    }
+    if (js_urls == null || js_urls.length === 0) {
+      run_callbacks();
+      return null;
+    }
+    console.debug("Bokeh: BokehJS not loaded, scheduling load and callback at", now());
+    root._bokeh_is_loading = css_urls.length + js_urls.length;
+
+    function on_load() {
+      root._bokeh_is_loading--;
+      if (root._bokeh_is_loading === 0) {
+        console.debug("Bokeh: all BokehJS libraries/stylesheets loaded");
+        run_callbacks()
+      }
+    }
+
+    function on_error(url) {
+      console.error("failed to load " + url);
+    }
+
+    for (let i = 0; i < css_urls.length; i++) {
+      const url = css_urls[i];
+      const element = document.createElement("link");
+      element.onload = on_load;
+      element.onerror = on_error.bind(null, url);
+      element.rel = "stylesheet";
+      element.type = "text/css";
+      element.href = url;
+      console.debug("Bokeh: injecting link tag for BokehJS stylesheet: ", url);
+      document.body.appendChild(element);
+    }
+
+    for (let i = 0; i < js_urls.length; i++) {
+      const url = js_urls[i];
+      const element = document.createElement('script');
+      element.onload = on_load;
+      element.onerror = on_error.bind(null, url);
+      element.async = false;
+      element.src = url;
+      console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
+      document.head.appendChild(element);
+    }
+  };
+
+  function inject_raw_css(css) {
+    const element = document.createElement("style");
+    element.appendChild(document.createTextNode(css));
+    document.body.appendChild(element);
+  }
+
+  
+  const js_urls = ["https://cdn.bokeh.org/bokeh/release/bokeh-2.4.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-gl-2.4.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.4.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.4.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-mathjax-2.4.1.min.js"];
+  const css_urls = [];
+  
+
+  const inline_js = [
+    function(Bokeh) {
+      Bokeh.set_log_level("info");
+    },
+    function(Bokeh) {
+    
+    
+    }
+  ];
+
+  function run_inline_js() {
+    
+    if (root.Bokeh !== undefined || force === true) {
+      
+    for (let i = 0; i < inline_js.length; i++) {
+      inline_js[i].call(root, root.Bokeh);
+    }
+    if (force === true) {
+        display_loaded();
+      }} else if (Date.now() < root._bokeh_timeout) {
+      setTimeout(run_inline_js, 100);
+    } else if (!root._bokeh_failed_load) {
+      console.log("Bokeh: BokehJS failed to load within specified timeout.");
+      root._bokeh_failed_load = true;
+    } else if (force !== true) {
+      const cell = $(document.getElementById("1002")).parents('.cell').data().cell;
+      cell.output_area.append_execute_result(NB_LOAD_WARNING)
+    }
+
+  }
+
+  if (root._bokeh_is_loading === 0) {
+    console.debug("Bokeh: BokehJS loaded, going straight to plotting");
+    run_inline_js();
+  } else {
+    load_libs(css_urls, js_urls, function() {
+      console.debug("Bokeh: BokehJS plotting callback run at", now());
+      run_inline_js();
+    });
+  }
+}(window));</script><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>In /home/noahguzman/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/stylelib/_classic_test.mplstyle: 
+The text.latex.preview rcparam was deprecated in Matplotlib 3.3 and will be removed two minor releases later.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>In /home/noahguzman/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/stylelib/_classic_test.mplstyle: 
+The mathtext.fallback_to_cm rcparam was deprecated in Matplotlib 3.3 and will be removed two minor releases later.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>In /home/noahguzman/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/stylelib/_classic_test.mplstyle: Support for setting the &#39;mathtext.fallback_to_cm&#39; rcParam is deprecated since 3.3 and will be removed two minor releases later; use &#39;mathtext.fallback : &#39;cm&#39; instead.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>In /home/noahguzman/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/stylelib/_classic_test.mplstyle: 
+The validate_bool_maybe_none function was deprecated in Matplotlib 3.3 and will be removed two minor releases later.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>In /home/noahguzman/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/stylelib/_classic_test.mplstyle: 
+The savefig.jpeg_quality rcparam was deprecated in Matplotlib 3.3 and will be removed two minor releases later.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>In /home/noahguzman/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/stylelib/_classic_test.mplstyle: 
+The keymap.all_axes rcparam was deprecated in Matplotlib 3.3 and will be removed two minor releases later.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>In /home/noahguzman/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/stylelib/_classic_test.mplstyle: 
+The animation.avconv_path rcparam was deprecated in Matplotlib 3.3 and will be removed two minor releases later.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>In /home/noahguzman/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/stylelib/_classic_test.mplstyle: 
+The animation.avconv_args rcparam was deprecated in Matplotlib 3.3 and will be removed two minor releases later.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="toggle docutils container">
+<div class="math notranslate nohighlight">
+\[
 \require{color}
 % Colorblind pallette
 \definecolor{Indigo}{RGB}{51, 34, 136}
@@ -329,27 +680,97 @@
 \definecolor{Rose}{RGB}{204, 102, 119}
 \definecolor{Wine}{RGB}{136, 34, 85}
 \definecolor{Purple}{RGB}{170, 68, 153}
-$$
-</pre></div>
+\]</div>
 </div>
 <div class="section" id="a-primer-on-electricity">
 <h2>A Primer on Electricity<a class="headerlink" href="#a-primer-on-electricity" title="Permalink to this headline">¶</a></h2>
+<p>To understand the electrical phenomena of the nervous system, we first need to understand a few basic concepts from electromagnetism, the physics of electrical and magnetic phenomena. It turns out that the magnetic phenomena arising from the electrical activity of neurons have a negligible effect on that activity, so we can ignore them for most practical purposes. With that in mind, I won’t be covering magnetism, only electricity. Specifically, I will only be covering <em>electrostatics</em>, an idealized branch of the study of electricity that assumes that electrical phenomena do not change rapidly over time. This assumption is of course false, but the idealization makes certain problems mathematically tractable.</p>
 <div class="section" id="electric-charges">
 <h3>Electric Charges<a class="headerlink" href="#electric-charges" title="Permalink to this headline">¶</a></h3>
+<p>All of the electrical phenomena and devices we experience on a daily basis, such as the phone in your pocket or the static shock you might feel when touching something after walking barefoot on carpet, arise from the presence of matter having the property of electric charge. You’ll often see circular definitions of electric charge, such as the one on Wikipedia: “Electric charge is the physical property of matter that causes it to experience a force when placed in an electromagnetic field”. Huh? If I need the concept of electric charge to understand what an electromagnetic field is, but the concept of an electric charge depends on understanding what an electromagnetic field is, how can I possibly understand either one?</p>
+<p>The key is to forget such circular definitions, which only make sense once one already understands both concepts. All of the properties we assign to matter, including electric charge, are <em>relational</em> properties. Though we can assign relational properties to individual objects or entities, they cannot be defined or measured without reference to at least two objects or entities. We can only know that an object has the property of electric charge by observing its behavior in the presence of at least one other object, namely, the attraction or repulsion of the two objects. This behavior was first observed by the ancient Greeks, who noted that a piece of amber rubbed with fur could attract small, light objects. We now know that the electric charge of these macroscopic objects, as well as their attraction and repulsion, are due to the charge-carrying subatomic particles that constitute those objects, which also attract and repel each other.</p>
+<p>Charges that attract each other are said to be <em>opposite</em> or <em>unlike</em> while charges that repel each other said to be <em>like</em> charges. There are two kinds of charges, <em>positive</em> and <em>negative</em> charges. Positive and negative charges attract each other but repel charges of the same kind. How do we know if a charge is positive or negative? This is purely a matter of convention, a set of agreed upon rules. It was decided many decades ago that electrons (a type of charge-carrying subatomic particle) have one negative <em>elementary charge</em> unit, denoted <span class="math notranslate nohighlight">\(-1 e\)</span>, while protons (a different type of charge-carrying subatomic particle) have one positive elementary charge unit, <span class="math notranslate nohighlight">\(1e\)</span>. We can check whether molecules and other physical entities are attracted to or repelled by groups of protons or electrons to determine the sign of their total charge.</p>
+<p>Why do electric charges attract or repel each other? To explain that in detail, we would need to get into special relativity and quantum mechanics, physics that I don’t know well and even if I did, would be beyond the scope of these notes. Even if we can’t tell a story about why electric charges repel and attract each other (i.e. the mechanisms of attraction and repulsion), we can at least describe how they do so. This description is in terms of the concept of an <em>electric field</em>.</p>
+<p>Suppose I have an electric charge at a point in space. Then, if I were to bring another electric charge (often called a <em>test charge</em>, an idealized electric charge whose other electrical properties are ignored) into that space, the first charge would exert some force (either attractive or repulsive) on that second charge. The electric field is a mathematical device that tells us the direction and magnitude of the force that would the first charge would exert on that second test charge at every point in space. As we will cover in later chapters, mathematical entities with magnitude and direction are called <em>vectors</em>, and since the electric field assigns a vector representing the force exerted by an electric charge to every point in space, it is an example of a <em>vector field</em>. The word <em>field</em> just means “exists at every point in a particular space”.</p>
+<div class="figure align-default" id="efield">
+<img alt="_images/efield.png" src="_images/efield.png" />
+<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">A diagram illustrating the electric fields resulting from different configurations of charges. Note the convention that electric force <span class="math notranslate nohighlight">\(\mathbf{E}\)</span>, called the <em>Coulomb force</em>, is directed from away from positive charges and toward negative charges. The direction of the field lines show that like charges repel each other while unlike charges attract.</span><a class="headerlink" href="#efield" title="Permalink to this image">¶</a></p>
+</div>
+<p>Charge is measured in units called <em>Coulombs</em> which are a multiple of the elementary unit charge <span class="math notranslate nohighlight">\(e\)</span>. Whenever we have electric charges moving through space, we have an <em>electric current</em>. Electric currents have units of <em>amperes</em>, which are equivalent to Coulombs per second. In other words, measuring an electric current at a point in space tells us how many Coulombs of charge pass that point in a single second.</p>
 </div>
 <div class="section" id="electric-potential">
 <h3>Electric Potential<a class="headerlink" href="#electric-potential" title="Permalink to this headline">¶</a></h3>
+<p>Electric potential tells us how much work we would have to do to move an electric charge from one point in space (called the <em>reference</em> point) through an existing electric field to another point in space within that field. You might think that this would depend on the path taken from one point to the other since the electric field varies in space, but it turns out that as long as the field does not vary in time, the path does not matter. In mathematical analyses of electrical systems, the reference point is often idealized to be at infinity.</p>
+<p>Of course, in real systems, we can’t stick a wire out to infinity to measure this <em>absolute potential</em>, so we usually choose an arbitrary reference point within reach and measure all potentials with respect to that point. What we do is to take that arbitrary reference point, define its electric potential to be zero, and measure the potential of a given point with respect to that reference point. We can then find the potential difference, or <em>voltage</em>, between any two points by measuring their potential with respect to the reference point and then taking the difference between those potentials. As you can see, electric potential is <em>relational</em>, since we always need two points to measure it. Mathematically, we can calculate the electric potential of a system of charges using an operation from multivariable calculus called a <em>path integral</em>.</p>
+<p>What is the real point of the concept of electric potential? Why do we care about it, measure it, calculate it? Electric potential is a convenient concept because it allows us to think about what electric charges are likely to do when placed within a field. Instead of having to think about how electric forces would act on a charge at each point in the field and trying to figure out the motion of the charge due to those forces, we can pretend that charges are like balls rolling around a hilly landscape. From the electric potential <span class="math notranslate nohighlight">\(V\)</span>, which is a <em>scalar field</em> (a number instead of a vector at each point in space), we can calculate the potential energy of a charge <span class="math notranslate nohighlight">\(q\)</span> at any point as <span class="math notranslate nohighlight">\(qV\)</span>. This forms a potential energy landscape much like the metaphor we used to understand thermodynamic equilibrium in the previous chapter. The ball representing the charge whose behavior we are interested in will roll towards the troughs of the landscape.</p>
+<div class="figure align-default" id="epot">
+<img alt="_images/epot.jpg" src="_images/epot.jpg" />
+<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">A diagram illustrating the landscape metaphor for electric potential in a system with one negative charge and one positive charge.</span><a class="headerlink" href="#epot" title="Permalink to this image">¶</a></p>
+</div>
+<p>At least from the point of physiology, we care about the electric potential of neurons and other parts of the nervous system because the potential is a variable that gives us information about how and when parts of the nervous system causally impact each other. Specifically, it tells us about how and when cells of the nervous system communicate with each other. We will cover this in greater detail in later sections.</p>
 </div>
 <div class="section" id="electrical-circuits">
 <h3>Electrical Circuits<a class="headerlink" href="#electrical-circuits" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="batteries">
-<h4>Batteries<a class="headerlink" href="#batteries" title="Permalink to this headline">¶</a></h4>
+<p>Electrical circuits are how we put electrical phenomena to practical use. The basic idea is pretty simple: find a way to create electric currents in materials and use those currents to do stuff. Those materials that we use to push charges around are called <em>circuits</em>. Circuit <em>elements</em> are parts of electrical circuits that serve a particular function. The standard approach to studying electrical circuits is to neglect the detailed physics of the materials they are made of, treating each element of the circuit as a black box with inputs and outputs. To understand those black boxes, we simply describe the way they shape voltage and electric current.</p>
+<p>We can get an intuitive understanding of what electrical circuits do (though not the detailed mechanisms of how they work) by using what is called the <em>electric-hydraulic analogy</em>, a metaphor relating the flow of electric charges through the elements of a circuit to the flow of water in a pipe. We’ll explain the function of each circuit element by analogizing it to an element serving a similar function that would be found in a system of pipes for transporting water.</p>
+<div class="section" id="electromotive-force">
+<h4>Electromotive Force<a class="headerlink" href="#electromotive-force" title="Permalink to this headline">¶</a></h4>
+<p>An <em>electromotive force</em>, or <em>EMF</em>, is the electrical action produced by any non-electrical source. For example, batteries are EMFs that convert chemical energy into electrical energy. In electrical circuits, EMFs frequently take the form of devices that result in the spatial separation of charges between the two ends of a circuit. This separation of charges results in the formation of an electric potential, creating an impetus for charges to move from one end to the other, yielding an electric current. In what follow, we’ll use the terms EMF and voltage source interchangeably. The hydraulic analogy for a voltage source is a water pump that pushes water from one place to another.</p>
+<p>A mildly confusing convention in the analysis of electrical circuits is that electric current is taken to be the movement of <em>positive charge</em>, so that current is said to flow from the positive to the negative terminals of the EMF. But charge carriers in typical circuits, the charges that actually move, are negatively charged electrons, so physical charges technically move in the opposite direction of the agreed upon mathematical representation of the electric current.</p>
 </div>
 <div class="section" id="resistors">
 <h4>Resistors<a class="headerlink" href="#resistors" title="Permalink to this headline">¶</a></h4>
+<p>Resistors, as the name implies, <em>resist</em> the flow of electric charges in a circuit. The hydraulic analogy for a resistor is a part of the pipe that narrows to restrict the flow of water (the volume of water passing through the pipe). Resistors similarly restrict the flow of electric charges. We won’t get into the detailed physics of how resistors restrict the flow of electric charges, but the extent to which they do so is partially determined by the material they are made of as well their geometry (the shape of the resistor).</p>
+<div class="figure align-default" id="resgif">
+<img alt="_images/resistor.gif" src="_images/resistor.gif" />
+<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">An animation showing a gravitational analogy for how resistors slow the current in a circuit.</span><a class="headerlink" href="#resgif" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="reswat">
+<img alt="_images/reswater.jpg" src="_images/reswater.jpg" />
+<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">The hydraulic analogy for resistors.</span><a class="headerlink" href="#reswat" title="Permalink to this image">¶</a></p>
+</div>
+<p>How do we measure resistance, the extent to which a resistor restricts the flow of electric charge? We measure the resistance <span class="math notranslate nohighlight">\(R\)</span> of a resistor with a unit called an <em>ohm</em>, represented by the capital Greek letter <em>omega</em> (<span class="math notranslate nohighlight">\(\Omega\)</span>). An ohm is equivalent to a volt per ampere:</p>
+<div class="math notranslate nohighlight">
+\[ \Omega = \frac{\textsf{volt}}{\textsf{ampere}} \]</div>
+<p>Why volt per ampere? Here’s the basic idea. Suppose you have a circuit with only an EMF:</p>
+<p>This circuit can be characterized by the voltage <span class="math notranslate nohighlight">\(V\)</span> generated by the EMF as well as the electric current <span class="math notranslate nohighlight">\(I\)</span> flowing between the two ends of the EMF. What would happen to that current if we were to introduce a resistor with resistance <span class="math notranslate nohighlight">\(R\)</span> into the circuit? Well, the current should decrease, right? It turns out (as determined from experiments) that the new decreased current <span class="math notranslate nohighlight">\(I'\)</span> is proportional to the voltage, with a constant of proportionality <span class="math notranslate nohighlight">\(g\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[I' = gV\]</div>
+<p>Since current is in units of amperes and the potential in units of volts, <span class="math notranslate nohighlight">\(g\)</span> must have units of amperes per volt. We can see this constant <span class="math notranslate nohighlight">\(g\)</span> as telling us, for a given voltage, how well the resistor conducts electrical charge, so we call <span class="math notranslate nohighlight">\(g\)</span> the <em>conductance</em>. It seems natural then that the reciprocal of <span class="math notranslate nohighlight">\(g\)</span> should tell us how poorly the resistor conducts electrical charge, or conversely, how well it <em>resists</em> the flow of electrical charge. In other words, <span class="math notranslate nohighlight">\(1/g\)</span> is a measure of the resistance of the resistor, so we say that <span class="math notranslate nohighlight">\(R = 1/g\)</span>, and since <span class="math notranslate nohighlight">\(g\)</span> has units of amperes per volt, <span class="math notranslate nohighlight">\(R\)</span> must have units of volts per ampere. This leads us to an important relation between the voltage, current, and resistance in a circuit containing only an EMF and a resistor, known as <em>Ohm’s Law</em>:</p>
+<div class="math notranslate nohighlight">
+\[V = IR\]</div>
+<p>This formula will prove important later. If a circuit has more than one resistor, we can still use Ohm’s law, but we first need to reduce the circuit to its <em>equivalent circuit</em>, that is, a circuit with the minimal number of circuit elements but all the same properties as the full circuit. We can do this using a few empirically determined rules that tell us how multiple resistors behave. If we have multiple resistors <span class="math notranslate nohighlight">\(R_1, R_2, ..., R_n\)</span> connected in series, then current must flow through each one sequentially, meaning the current will continue to decrease as it passes through each one. So resistors in series are equivalent to a single resistor <span class="math notranslate nohighlight">\(R\)</span> having the same resistance as all the resistors combined:</p>
+<div class="math notranslate nohighlight">
+\[ R = R_1 + R_2 + ... + R_n = \sum _{i=1}^n R_i \]</div>
+<div class="figure align-default" id="resser">
+<img alt="_images/resser.png" src="_images/resser.png" />
+<p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text">A diagram illustrating resistors in series.</span><a class="headerlink" href="#resser" title="Permalink to this image">¶</a></p>
+</div>
+<p>However, if we have multiple resistors in parallel, current flows through both simultaneously, and like two rivers meeting to form a larger river with a greater current than either alone, the currents through both resistors will meet and combine. In this case, the resistors in parallel are equivalent to a single resistor <span class="math notranslate nohighlight">\(R\)</span> having the same resistance as the reciprocal of all resistors combined:</p>
+<div class="math notranslate nohighlight">
+\[ R = \frac{1}{R_1} + \frac{1}{R_2} + ... + \frac{1}{R_n} = \sum _{i=1}^n \frac{1}{R_i} \]</div>
+<div class="figure align-default" id="respar">
+<img alt="_images/respar.png" src="_images/respar.png" />
+<p class="caption"><span class="caption-number">Fig. 15 </span><span class="caption-text">A diagram illustrating resistors in parallel.</span><a class="headerlink" href="#respar" title="Permalink to this image">¶</a></p>
+</div>
 </div>
 <div class="section" id="capacitors">
 <h4>Capacitors<a class="headerlink" href="#capacitors" title="Permalink to this headline">¶</a></h4>
+<p>Capacitors are relatively simple. The most common kind of capacitor is a parallel plate capacitor, a device consisting of two metal plates separated by a material called a <em>dielectric medium</em>, an electrical insulator that does not conduct electric charges. Capacitors are often said to store electric energy. What does this mean exactly?</p>
+<p>Suppose an electric current is flowing towards one plate of a capacitor. As charges of one sign begin to accumulate on one plate (since they cannot pass through the dielectric in the middle to get to the other plate), charges of the opposite sign begin to accumulate on the opposite plate, drawn there by the attraction to the opposite sign charges. As charges accumulate on both plates, the current normally carried by those charges grows smaller and smaller until it vanishes completely once the opposite sign charges on each plate have reached an equilibrium where they cancel each other out. This process is called <em>charging</em> the capacitor, and this is the sense in which capacitors store energy: the accumulated charges can later be released to do work. If we hook the capacitor up to a device that offers a free path for charges to flow through, they will rapidly leave the capacitor plates in a process called <em>discharging</em> the capacitor.</p>
+<p>The hydraulic analogy for a capacitor is a flexible rubber sheet dividing a tank of water. As current flows against the sheet, the sheet bends inward displacing water on one side and allowing water to accumulate along its surface on the other side.</p>
+<p>Like resistors, which can be represented mathematically by a single number <span class="math notranslate nohighlight">\(R\)</span> indicating how they alter the current at a given voltage, capacitors can be represented by a single number <span class="math notranslate nohighlight">\(C\)</span>, the <em>capacitance</em>, indicating how much charge accumulates on the plates at a given voltage. Empirically, for a given voltage <span class="math notranslate nohighlight">\(V\)</span> and charge <span class="math notranslate nohighlight">\(Q\)</span>, the relation has been found to be</p>
+<div class="math notranslate nohighlight">
+\[Q = CV\]</div>
+<p>Later, we will see that this relation is necessary for calculating the voltage of a neuron.</p>
+<div class="figure align-default" id="capacitor">
+<img alt="_images/capacitor.gif" src="_images/capacitor.gif" />
+<p class="caption"><span class="caption-number">Fig. 16 </span><span class="caption-text">An animation illustrating the working of a capacitor. Blue particles are negative charges, red particles are positive charges.</span><a class="headerlink" href="#capacitor" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="capwater">
+<img alt="_images/cap.gif" src="_images/cap.gif" />
+<p class="caption"><span class="caption-number">Fig. 17 </span><span class="caption-text">The hydraulic analogy for a capacitor.</span><a class="headerlink" href="#capwater" title="Permalink to this image">¶</a></p>
+</div>
 </div>
 </div>
 </div>
@@ -360,8 +781,42 @@ $$
 </div>
 <div class="section" id="the-nernst-potential">
 <h2>The Nernst Potential<a class="headerlink" href="#the-nernst-potential" title="Permalink to this headline">¶</a></h2>
+<p>The first circuit element we learned about was the electromotive force, or voltage source. If we are going to analogize neurons as circuits, what is the cellular equivalent of a voltage source? Ions (atoms carrying electrical charge) rather than electrons are the charge carriers in physiological environments, and due to the properties of the lipid bilayer forming the cell membrane, ions cannot readily cross the membrane on their own. This means that there will be different concentrations of different species of ions on either side of the cell membrane. Wherever there is a separation of charges between two points in space, we can define and measure a voltage between those points, so we can define and measure a voltage between the intracellular and extracellular space.</p>
+<p>Unlike standard electrical circuits however, where we are usually dealing with voltage sources having a fixed value, the voltage of the cell can change drastically over both long and short timescales. This is because ion channels, the proteins responsible for transporting ions across the cell membrane, can rapidly change the extent to which they conduct ions. To better understand these rapid changes in ion channels and how they contribute to the overall voltage of the cell, we first need to understand the concept of <em>electrochemical potential</em>.</p>
 <div class="section" id="chemical-potential-emerges-from-diffusion">
 <h3>Chemical Potential Emerges from Diffusion<a class="headerlink" href="#chemical-potential-emerges-from-diffusion" title="Permalink to this headline">¶</a></h3>
+<p>Electrochemical potential is essentially the combination of chemical and electric potential. We already have some idea about the concept of electric potential, so let’s try to understand chemical potential.</p>
+<p>Chemical potential is pretty simple, though it often gets obscured by a lot of difficult mathematics. The main idea is that chemical species tend to move from regions of space where they are highly concentrated to regions of space where they are in low concentration. Chemical potential merely quantifies this tendency. But why does this tendency exist in the first place? From many of the discussions one might find on the internet, it might seem like the tendency arises due to some magical chemical force. This is emphatically not the case.</p>
+<p>“Chemical force”, or the tendency for chemicals to move from high to low concentration, arises from diffusion. In areas of high concentration, molecules and particles constantly collide with each other, causing them to move into whatever free space is available. Of course, free space is space where there are fewer molecules and therefore lower concentration. It’s just the mechanics of particles and molecules bumping into each other until they spread out. See the animations below to get an intuitive feel for the phenomenon:</p>
+<div class="figure align-default" id="disp">
+<img alt="_images/dispersion.gif" src="_images/dispersion.gif" />
+<p class="caption"><span class="caption-number">Fig. 18 </span><span class="caption-text">The dispersion of ink through glasses of water. Note that the ink diffuses faster through the glass on the left in which the water is warmer.</span><a class="headerlink" href="#disp" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="diff">
+<img alt="_images/diffusion.gif" src="_images/diffusion.gif" />
+<p class="caption"><span class="caption-number">Fig. 19 </span><span class="caption-text">An animation illustrating diffusion of particles from regions of high concentration to regions of low concentration. (Top) A single particle moving randomly does not disperse far since it does not collide into other particles. (Middle) As soon as other particles are introduced and the wall separating the two regions of the container is lifted, the particles collide with each other, diffusing into the open space. (Bottom) The color illustrates the concentration of the particles, with purple corresponding to high concentration and beige corresponding to low concentration.</span><a class="headerlink" href="#diff" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="electrochemical-potential-the-nernst-equation">
+<h3>Electrochemical Potential: The Nernst Equation<a class="headerlink" href="#electrochemical-potential-the-nernst-equation" title="Permalink to this headline">¶</a></h3>
+<p>Since ions in the cytosol and in the extracellular space experience both chemical and electric forces, and those forces may sometimes be in opposing directions, we need a way to characterize the net force experienced by those ions.</p>
+<p>We mentioned ion channels briefly in the last chapter. They are transmembrane proteins, meaning that they are proteins spanning the membrane, with domains both inside and outside the cell. Ion channels contain pores to allow ions to pass from one side of the cell to the other, but they do not allow just any ions to pass. All channels have mechanisms exploiting the physics of proteins that allow only one or two kinds of ions to pass through the pore, a property known as <em>ion channel specificity</em>. The presence of ion channels means that cell membranes are <em>semi-permeable</em> to ions.</p>
+<p>The voltage arising from the separation of a single ion species across a semi-permeable membrane, with both chemical diffusion and electrostatic forces balancing each other, is called the <em>Nernst potential</em> or simply the <em>electrochemical potential</em>. We won’t derive the equation for the Nernst potential, but in addition to a number of physical constants, the Nernst potential is primarily determined by the concentration of the ion species on either side of the membrane as well as the charge of the ion species. The charge carried by an ion species is called its <em>valence</em>.</p>
+<p>It is important to recognize that the Nernst potential doesn’t tell us how the voltage across the membrane changes as charges move across it, only the voltage when no net forces are acting on ions and therefore no net movement occurs. Here’s the Nernst equation for the electrochemical potential generated by separating ions of a single species <span class="math notranslate nohighlight">\(A\)</span> with valence <span class="math notranslate nohighlight">\(z\)</span> across an impermeable membrane (remember to hover your cursor over the different symbols in the equation to see what they are):</p>
+<div class="math notranslate nohighlight">
+\[ 
+\Large \texttip{E_{A^z}}{The electrochemical potential of the ion species} = \frac{\texttip{R}{The ideal gas constant}\texttip{T}{The temperature in Kelvin}}{\texttip{z}{The valence of the ion species}\texttip{F}{Faraday's constant}} \log \left( \frac{\texttip{[A^z]_o}{The extracellular concentration of the ion species}}{\texttip{[A^z]_i}{The intracellular concentration of the ion species}} \right ) 
+\]</div>
+<p>Woah, that’s a lot of symbols! We can break it down to better understand the bits and pieces. If we group some of these symbols together, as we have done using color in the equations below, we can see that the Nernst equation has the same form as the equation of a line:</p>
+<div class="math notranslate nohighlight">
+\[ 
+\Large \color{Purple} E_{A^z} \color{black} = \color{Teal} \frac{RT}{zF} \color{Olive} \log \left( \frac{[A^z]_o}{[A^z]_i} \right ) 
+\]</div>
+<div class="math notranslate nohighlight">
+\[\Large \downarrow\]</div>
+<div class="math notranslate nohighlight">
+\[ \Large \color{Purple} y \color{black} = \color{Teal} m \color{Olive} x \color{black} + \color{Rose}b \]</div>
+<p>We can visualize this for sodium ions (with valence <span class="math notranslate nohighlight">\(+1\)</span>) at physiological temperatures using the plot below. If we plot the ratio of the extracellular and intracellular concentrations of sodium on a log scale, we will see a straight line for the Nernst potential. The Nernst potential is often called the <em>reversal potential</em> or <em>equilibrium potential</em>. This is because it gives us the voltage at which the ion species is in equilibrium, with not net movement of ions across the membrane. If the membrane potential was above the Nernst potential, movement of ions would be in one direction across the membrane, but if the membrane potential was below the Nernst potential, this direction of movement would switch, hence the name <em>reversal potential</em>.</p>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">NernstPotential</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">C_in</span><span class="p">,</span> <span class="n">C_out</span><span class="p">):</span>
@@ -441,12 +896,12 @@ $$
 
 
 
-<div class="bk-root" id="0a2f21cd-d5a3-4c0d-9d5a-0190af92da84" data-root-id="1003"></div>
+<div class="bk-root" id="f797c669-439e-469e-9639-e7bf57935c5e" data-root-id="1003"></div>
 </div><script type="application/javascript">(function(root) {
   function embed_document(root) {
     
-  const docs_json = {"26ce81b4-285b-4ca5-b452-fa1d841d1667":{"defs":[],"roots":{"references":[{"attributes":{"background_fill_color":"#fffff1","below":[{"id":"1012"}],"center":[{"id":"1015"},{"id":"1019"}],"height":500,"left":[{"id":"1016"}],"renderers":[{"id":"1038"}],"title":{"id":"1040"},"toolbar":{"id":"1027"},"width":500,"x_range":{"id":"1004"},"x_scale":{"id":"1008"},"y_range":{"id":"1006"},"y_scale":{"id":"1010"}},"id":"1003","subtype":"Figure","type":"Plot"},{"attributes":{},"id":"1017","type":"BasicTicker"},{"attributes":{},"id":"1044","type":"AllLabels"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#111111"},"hatch_alpha":{"value":0.1},"hatch_color":{"value":"#111111"},"line_alpha":{"value":0.1},"line_color":{"value":"#111111"},"size":{"value":10},"x":{"field":"x"},"y":{"field":"y"}},"id":"1036","type":"Circle"},{"attributes":{"tools":[{"id":"1020"},{"id":"1021"},{"id":"1022"},{"id":"1023"},{"id":"1024"},{"id":"1025"}]},"id":"1027","type":"Toolbar"},{"attributes":{"axis_label":"$$\\textsf{Reversal Potential (mV)}$$","coordinates":null,"formatter":{"id":"1043"},"group":null,"major_label_policy":{"id":"1044"},"ticker":{"id":"1017"}},"id":"1016","type":"LinearAxis"},{"attributes":{},"id":"1043","type":"BasicTickFormatter"},{"attributes":{"ticker":null},"id":"1046","type":"LogTickFormatter"},{"attributes":{"coordinates":null,"group":null},"id":"1040","type":"Title"},{"attributes":{},"id":"1049","type":"Selection"},{"attributes":{"axis":{"id":"1012"},"coordinates":null,"group":null,"ticker":null},"id":"1015","type":"Grid"},{"attributes":{"data":{"x":{"__ndarray__":"mpmZmZmZuT8AAAAAAADwPwAAAAAAACRAAAAAAAAAWUA=","dtype":"float64","order":"little","shape":[4]},"y":{"__ndarray__":"AfxKDSzFTsAAAAAAAAAAAAL8Sg0sxU5AAvxKDSzFXkA=","dtype":"float64","order":"little","shape":[4]}},"selected":{"id":"1049"},"selection_policy":{"id":"1048"}},"id":"1034","type":"ColumnDataSource"},{"attributes":{},"id":"1020","type":"PanTool"},{"attributes":{"fill_alpha":{"value":0.2},"fill_color":{"value":"#111111"},"hatch_alpha":{"value":0.2},"hatch_color":{"value":"#111111"},"line_alpha":{"value":0.2},"line_color":{"value":"#111111"},"size":{"value":10},"x":{"field":"x"},"y":{"field":"y"}},"id":"1037","type":"Circle"},{"attributes":{},"id":"1004","type":"DataRange1d"},{"attributes":{},"id":"1021","type":"WheelZoomTool"},{"attributes":{},"id":"1008","type":"LogScale"},{"attributes":{},"id":"1023","type":"SaveTool"},{"attributes":{"end":133.0808137161512,"start":-71.54040685807558},"id":"1006","type":"Range1d"},{"attributes":{"num_minor_ticks":10},"id":"1013","type":"LogTicker"},{"attributes":{"overlay":{"id":"1026"}},"id":"1022","type":"BoxZoomTool"},{"attributes":{},"id":"1024","type":"ResetTool"},{"attributes":{},"id":"1047","type":"AllLabels"},{"attributes":{},"id":"1048","type":"UnionRenderers"},{"attributes":{},"id":"1025","type":"HelpTool"},{"attributes":{},"id":"1010","type":"LinearScale"},{"attributes":{"fill_color":{"value":"#111111"},"hatch_color":{"value":"#111111"},"line_color":{"value":"#111111"},"size":{"value":10},"x":{"field":"x"},"y":{"field":"y"}},"id":"1035","type":"Circle"},{"attributes":{"coordinates":null,"data_source":{"id":"1034"},"glyph":{"id":"1035"},"group":null,"hover_glyph":null,"muted_glyph":{"id":"1037"},"nonselection_glyph":{"id":"1036"},"view":{"id":"1039"}},"id":"1038","type":"GlyphRenderer"},{"attributes":{"bottom_units":"screen","coordinates":null,"fill_alpha":0.5,"fill_color":"lightgrey","group":null,"left_units":"screen","level":"overlay","line_alpha":1.0,"line_color":"black","line_dash":[4,4],"line_width":2,"right_units":"screen","syncable":false,"top_units":"screen"},"id":"1026","type":"BoxAnnotation"},{"attributes":{"axis":{"id":"1016"},"coordinates":null,"dimension":1,"group":null,"ticker":null},"id":"1019","type":"Grid"},{"attributes":{"axis_label":"$$ \\frac{\\left[\\textsf{Na}^+ \\right]_o}{\\left[\\textsf{Na}^+ \\right]_i} $$","coordinates":null,"formatter":{"id":"1046"},"group":null,"major_label_policy":{"id":"1047"},"ticker":{"id":"1013"}},"id":"1012","type":"LogAxis"},{"attributes":{"source":{"id":"1034"}},"id":"1039","type":"CDSView"}],"root_ids":["1003"]},"title":"Bokeh Application","version":"2.4.1"}};
-  const render_items = [{"docid":"26ce81b4-285b-4ca5-b452-fa1d841d1667","root_ids":["1003"],"roots":{"1003":"0a2f21cd-d5a3-4c0d-9d5a-0190af92da84"}}];
+  const docs_json = {"0f2f9432-91a8-4b23-8f0a-3f1feefd384e":{"defs":[],"roots":{"references":[{"attributes":{"background_fill_color":"#fffff1","below":[{"id":"1012"}],"center":[{"id":"1015"},{"id":"1019"}],"height":500,"left":[{"id":"1016"}],"renderers":[{"id":"1038"}],"title":{"id":"1040"},"toolbar":{"id":"1027"},"width":500,"x_range":{"id":"1004"},"x_scale":{"id":"1008"},"y_range":{"id":"1006"},"y_scale":{"id":"1010"}},"id":"1003","subtype":"Figure","type":"Plot"},{"attributes":{},"id":"1008","type":"LogScale"},{"attributes":{"coordinates":null,"data_source":{"id":"1034"},"glyph":{"id":"1035"},"group":null,"hover_glyph":null,"muted_glyph":{"id":"1037"},"nonselection_glyph":{"id":"1036"},"view":{"id":"1039"}},"id":"1038","type":"GlyphRenderer"},{"attributes":{},"id":"1024","type":"ResetTool"},{"attributes":{},"id":"1044","type":"AllLabels"},{"attributes":{"end":133.0808137161512,"start":-71.54040685807558},"id":"1006","type":"Range1d"},{"attributes":{},"id":"1023","type":"SaveTool"},{"attributes":{},"id":"1004","type":"DataRange1d"},{"attributes":{"ticker":null},"id":"1046","type":"LogTickFormatter"},{"attributes":{},"id":"1025","type":"HelpTool"},{"attributes":{"axis_label":"$$ \\frac{\\left[\\textsf{Na}^+ \\right]_o}{\\left[\\textsf{Na}^+ \\right]_i} $$","coordinates":null,"formatter":{"id":"1046"},"group":null,"major_label_policy":{"id":"1047"},"ticker":{"id":"1013"}},"id":"1012","type":"LogAxis"},{"attributes":{"source":{"id":"1034"}},"id":"1039","type":"CDSView"},{"attributes":{},"id":"1043","type":"BasicTickFormatter"},{"attributes":{"bottom_units":"screen","coordinates":null,"fill_alpha":0.5,"fill_color":"lightgrey","group":null,"left_units":"screen","level":"overlay","line_alpha":1.0,"line_color":"black","line_dash":[4,4],"line_width":2,"right_units":"screen","syncable":false,"top_units":"screen"},"id":"1026","type":"BoxAnnotation"},{"attributes":{"tools":[{"id":"1020"},{"id":"1021"},{"id":"1022"},{"id":"1023"},{"id":"1024"},{"id":"1025"}]},"id":"1027","type":"Toolbar"},{"attributes":{"fill_alpha":{"value":0.2},"fill_color":{"value":"#111111"},"hatch_alpha":{"value":0.2},"hatch_color":{"value":"#111111"},"line_alpha":{"value":0.2},"line_color":{"value":"#111111"},"size":{"value":10},"x":{"field":"x"},"y":{"field":"y"}},"id":"1037","type":"Circle"},{"attributes":{"num_minor_ticks":10},"id":"1013","type":"LogTicker"},{"attributes":{"coordinates":null,"group":null},"id":"1040","type":"Title"},{"attributes":{"axis_label":"$$\\textsf{Reversal Potential (mV)}$$","coordinates":null,"formatter":{"id":"1043"},"group":null,"major_label_policy":{"id":"1044"},"ticker":{"id":"1017"}},"id":"1016","type":"LinearAxis"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#111111"},"hatch_alpha":{"value":0.1},"hatch_color":{"value":"#111111"},"line_alpha":{"value":0.1},"line_color":{"value":"#111111"},"size":{"value":10},"x":{"field":"x"},"y":{"field":"y"}},"id":"1036","type":"Circle"},{"attributes":{},"id":"1010","type":"LinearScale"},{"attributes":{"axis":{"id":"1016"},"coordinates":null,"dimension":1,"group":null,"ticker":null},"id":"1019","type":"Grid"},{"attributes":{"axis":{"id":"1012"},"coordinates":null,"group":null,"ticker":null},"id":"1015","type":"Grid"},{"attributes":{"fill_color":{"value":"#111111"},"hatch_color":{"value":"#111111"},"line_color":{"value":"#111111"},"size":{"value":10},"x":{"field":"x"},"y":{"field":"y"}},"id":"1035","type":"Circle"},{"attributes":{},"id":"1017","type":"BasicTicker"},{"attributes":{},"id":"1049","type":"Selection"},{"attributes":{},"id":"1048","type":"UnionRenderers"},{"attributes":{"data":{"x":{"__ndarray__":"mpmZmZmZuT8AAAAAAADwPwAAAAAAACRAAAAAAAAAWUA=","dtype":"float64","order":"little","shape":[4]},"y":{"__ndarray__":"AfxKDSzFTsAAAAAAAAAAAAL8Sg0sxU5AAvxKDSzFXkA=","dtype":"float64","order":"little","shape":[4]}},"selected":{"id":"1049"},"selection_policy":{"id":"1048"}},"id":"1034","type":"ColumnDataSource"},{"attributes":{},"id":"1047","type":"AllLabels"},{"attributes":{},"id":"1020","type":"PanTool"},{"attributes":{},"id":"1021","type":"WheelZoomTool"},{"attributes":{"overlay":{"id":"1026"}},"id":"1022","type":"BoxZoomTool"}],"root_ids":["1003"]},"title":"Bokeh Application","version":"2.4.1"}};
+  const render_items = [{"docid":"0f2f9432-91a8-4b23-8f0a-3f1feefd384e","root_ids":["1003"],"roots":{"1003":"f797c669-439e-469e-9639-e7bf57935c5e"}}];
   root.Bokeh.embed.embed_items_notebook(docs_json, render_items);
 
   }
@@ -469,36 +924,72 @@ $$
   }
 })(window);</script></div>
 </div>
-</div>
-<div class="section" id="electrochemical-potential-the-nernst-equation">
-<h3>Electrochemical Potential: The Nernst Equation<a class="headerlink" href="#electrochemical-potential-the-nernst-equation" title="Permalink to this headline">¶</a></h3>
-<p>Here’s the Nernst equation for the electrochemical potential generated by separating ions of a single species <span class="math notranslate nohighlight">\(A\)</span> with valence <span class="math notranslate nohighlight">\(z\)</span> across an impermeable membrane (remember to hover your cursor over the different symbols in the equation to see what they are):</p>
-<div class="math notranslate nohighlight">
-\[ 
-\Large \texttip{E_{A^z}}{The electrochemical potential of the ion species} = \frac{RT}{zF} \log \left( \frac{[A^z]_o}{[A^z]_i} \right ) 
-\]</div>
-<p>Woah, that’s a lot of symbols! We can break it down to better understand the bits and pieces. If we group some of these symbols together, as we have done using color in the equations below, we can see that the Nernst equation has the same form as the equation of a line:</p>
-<div class="math notranslate nohighlight">
-\[ 
-\Large \color{Purple} E_{A^z} \color{black} = \color{Teal} \frac{RT}{zF} \color{Olive} \log \left( \frac{[A^z]_o}{[A^z]_i} \right ) 
-\]</div>
-<div class="math notranslate nohighlight">
-\[\Large \downarrow\]</div>
-<div class="math notranslate nohighlight">
-\[ \Large \color{Purple} y \color{black} = \color{Teal} m \color{Olive} x \color{black} + \color{Rose}b \]</div>
+<p>In case my coverage of the Nernst potential wasn’t clear enough, check out this great video by Paul Andersen explaining it with simulations:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">YouTubeVideo</span><span class="p">(</span><span class="s2">&quot;Ba02v7eoVWQ&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">450</span><span class="p">)</span>
+</pre></div>
 </div>
 </div>
-<div class="section" id="the-resting-membrane-potential">
-<h2>The Resting Membrane Potential<a class="headerlink" href="#the-resting-membrane-potential" title="Permalink to this headline">¶</a></h2>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<iframe
+    width="800"
+    height="450"
+    src="https://www.youtube.com/embed/Ba02v7eoVWQ"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
 </div>
-<div class="section" id="the-cell-membrane-as-capacitor">
-<h2>The Cell Membrane as Capacitor<a class="headerlink" href="#the-cell-membrane-as-capacitor" title="Permalink to this headline">¶</a></h2>
+<p>The Nernst potential does not tell us about the voltage of the whole cell, called its <em>membrane potential</em>. But it is a crucial concept in determining the membrane potential. To get the full story on how all of the different ion species present in a cell work together to determine the membrane potential, we need to know about how ion channels conduct electric currents (called <em>ionic currents</em>) that can change the membrane potential by altering the distribution of charges on either side of the membrane.</p>
+</div>
 </div>
 <div class="section" id="ion-channels-as-resistors">
 <h2>Ion Channels as Resistors<a class="headerlink" href="#ion-channels-as-resistors" title="Permalink to this headline">¶</a></h2>
+<p>We won’t get into the detailed biophysics of ion channels, but there are a few things we need to know about ion channels to be able to model neural activity. Though there are a few kinds of ion channels that are always open (able to pass ions) regardless of the state of the cell or the extracellular space, most are not. Typically, the conformation (shape) of the ion channel determines whether it is open or closed, and this conformation is in turn determined by other factors. The dynamics of these ion channel openings and closings shape the electrical activity of the cell, and therefore the electrical activity of the whole nervous system, thereby shaping the behavior of the organism.</p>
+<p>Because ion channels allow ions, charge carriers, to pass through their pores and moving charges constitute an electrical current, we can analogize ion channels as resistors. But not just any resistors. As we already said, most ion channels are not open all the time, which means that their level of resistance (or conversely, conductance) can change. This means that ion channels are more like variable resistors, resistors whose resistance is a function of some variable such as temperature. In electrophysiology, we prefer to deal with conductance as opposed to resistance, for purely historical and conventional reasons.</p>
+<div class="figure align-default" id="ionres">
+<img alt="_images/ionres.png" src="_images/ionres.png" />
+<p class="caption"><span class="caption-number">Fig. 20 </span><span class="caption-text">A depiction of ion channels as variable resistors (the arrow through the resistor is the symbol for a variable resistor).</span><a class="headerlink" href="#ionres" title="Permalink to this image">¶</a></p>
 </div>
+<p>In the next section, we will briefly cover the different kinds of ion channels and discuss how to model them mathematically as variable resistors.</p>
 <div class="section" id="a-menagerie-of-ion-channels">
-<h2>A Menagerie of Ion Channels<a class="headerlink" href="#a-menagerie-of-ion-channels" title="Permalink to this headline">¶</a></h2>
+<h3>A Menagerie of Ion Channels<a class="headerlink" href="#a-menagerie-of-ion-channels" title="Permalink to this headline">¶</a></h3>
+<p>Ion channels vary not only in which ions they allow to pass through their pores, but also in the mechanisms by which they open and close. For any given ion species, there may be many different species of ion channel that conduct that ion, each channel having different electrical properties. There are several different kinds of mechanisms governing the opening and closing of ion channels:</p>
+<ul class="simple">
+<li><p><strong>Ligand gated:</strong> These ion channels have a conformation that allows them to bind to certain molecules called <em>ligands</em>. Once a ligand has become bound to the ion channels, it will change its conformation, staying open and allowing ions to pass until the ligand has become unbound.</p></li>
+<li><p><strong>Mechanically gated:</strong> These ion channels change conformation in response to mechanical deformations of the membrane. They remain open as long as those deformations persist past a particular threshold level.</p></li>
+<li><p><strong>Temperature gated:</strong> These ion channels may detect cold or heat and change their conformation to open or closed whenever the temperature is past a particular threshold.</p></li>
+<li><p><strong>Voltage gated:</strong> These types of ion channels are arguably the most important for rapidly altering the voltage of neurons (and therefore communication between them). They contain mechanisms for changing conformation to open (a process called <em>activation</em>) as well as changing conformation to closed (a process called <em>inactivation</em>) in response to changes in voltage.</p></li>
+</ul>
+<div class="figure align-default" id="ionchan">
+<img alt="_images/ionchan.png" src="_images/ionchan.png" />
+<p class="caption"><span class="caption-number">Fig. 21 </span><span class="caption-text">A diagram of the some of the main types of ion channels.</span><a class="headerlink" href="#ionchan" title="Permalink to this image">¶</a></p>
+</div>
+<p>Regardless of the mechanism by which an ion channel opens and closes, we can model all ion channels within the same framework. Our first step is to determine the conductance of the ion channel. Since we know that the conductance can change based on variables like temperature and voltage, we need to model the conductance not as a single value <span class="math notranslate nohighlight">\(g\)</span>, but as a function of those variables. Call the variables the ion channel species <span class="math notranslate nohighlight">\(j\)</span> is sensitive to <span class="math notranslate nohighlight">\(x_1, x2, ..., x_n\)</span>. Then we can write the conductance as a function of these variables:</p>
+<div class="math notranslate nohighlight">
+\[g_j(x_1, x_2, ..., x_n)\]</div>
+<p>Now, we use Ohm’s law (<span class="math notranslate nohighlight">\(I = gV = V/R\)</span> or <span class="math notranslate nohighlight">\(V = IR\)</span>) to determine the <em>ionic current</em> of the ion channel species, <span class="math notranslate nohighlight">\(I_j\)</span>, through the channel at a given membrane potential <span class="math notranslate nohighlight">\(V_m\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ I_j = g_j(x_1, x_2, ..., x_n)\left [V_m - E_j \right ]\]</div>
+<p>where <span class="math notranslate nohighlight">\(E_j\)</span> is the Nernst potential for the ion species conducted by ion channel species <span class="math notranslate nohighlight">\(j\)</span>. The reason we take the difference between the membrane potential and the Nernst potential is because there will be no net ion movement at the Nernst potential, so the magnitude and sign of the driving force acting to push ions through the ion channel pore is only non-zero when the membrane potential varies away from the Nernst potential.</p>
+<p>Now that we know about the Nernst potential and have seen how we can use it to calculate the ionic current through different species of ion channel at different voltages, we just need one more piece of the cell-to-circuit analogy before we can figure out the total membrane potential of a cell and how it changes in time.</p>
+</div>
+</div>
+<div class="section" id="the-cell-membrane-as-capacitor">
+<h2>The Cell Membrane as Capacitor<a class="headerlink" href="#the-cell-membrane-as-capacitor" title="Permalink to this headline">¶</a></h2>
+<p>As we have already seen, ions cannot pass through the membrane directly and require the help of ion channels. This means that charges can accumulate along either side of the membrane. Whenever a material, in this case the lipid bilayer of the cell membrane, serves as an insulating layer keeping charges apart, that material will behave like a capacitor. The capacitance of the cell membrane, that is, the amount of charge that needs to be distributed across the membrane in order for a certain voltage to be built up across it, is determined by the thickness of the membrane as well as other properties of the lipids forming the bilayer.</p>
+<p>Sometimes we may be interested in the capacitance of the entire cell, but other times we may be interested in the capacitance of just a small patch of the membrane. In that case, we work with the <em>specific capacitance</em> <span class="math notranslate nohighlight">\(C_m\)</span>, the capacitance per square patch of the membrane, measured in microfarads per square centimeter of membrane (<span class="math notranslate nohighlight">\(\mu \text{F} / \text{cm}^2 \)</span>). The capacitance of whole membrane can be determined by multiplying <span class="math notranslate nohighlight">\(C_m\)</span> by the surface area of the membrane.</p>
+<div class="figure align-default" id="circcell">
+<img alt="_images/circuitcell.jpg" src="_images/circuitcell.jpg" />
+<p class="caption"><span class="caption-number">Fig. 22 </span><span class="caption-text">The circuit model of the cell. Note that though the resistor is not shown as a variable resistor, it should be. The two horizontal bars of equal length are the symbol for a capacitorm while the horizontal bars of different length are the symbol for a voltage source.</span><a class="headerlink" href="#circcell" title="Permalink to this image">¶</a></p>
+</div>
+<p>I said that the analogy between the cell membrane and a capacitor was the last piece of the puzzle that we needed to be able to model cellular electrical phenomena as measured by changes in the membrane potential. You may be disappointed to learn that this is not quite true. We need a bit of calculus under our belts before we can really get quantitative about it. However, I will end this chapter with a qualitative overview of the process.</p>
+<p>If we can treat ion channels as resistors, then the geometry of the cell membrane means that they are all in parallel with each other. We know that the current through parallel resistors can be summed to determine the total current at the junction between the resistors. So the total ionic current leaving and entering the cell can be determined by summing all of the ionic currents together. Electric currents are all about moving charges. So as ions pass through ion channels, they change the distribution of charges on either side of the membrane. We already know an equation that relates charge to voltage, the capacitance equation:</p>
+<div class="math notranslate nohighlight">
+\[ CV = Q \]</div>
+<p>Stare at the equation for a while and see if you can figure out how it relates to the ionic currents we discussed earlier and how we can use that relation to determine the changing membrane potential of a cell.</p>
 </div>
 </div>
 
