@@ -367,7 +367,7 @@ YouTubeVideo("Ba02v7eoVWQ", width=800, height=450)
 # ```{figure} circuitcell.jpg
 # :name: circcell
 # 
-# The circuit model of the cell. Note that though the resistor is not shown as a variable resistor, it should be. The two horizontal bars of equal length are the symbol for a capacitorm while the horizontal bars of different length are the symbol for a voltage source. 
+# The circuit model of the cell. Note that though the resistor is not shown as a variable resistor, it should be. The two horizontal bars of equal length are the symbol for a capacitorm while the horizontal bars of different length are the symbol for a voltage source.   
 # ```
 # 
 # I said that the analogy between the cell membrane and a capacitor was the last piece of the puzzle that we needed to be able to model cellular electrical phenomena as measured by changes in the membrane potential. You may be disappointed to learn that this is not quite true. We need a bit of calculus under our belts before we can really get quantitative about it. However, I will end this chapter with a qualitative overview of the process.
