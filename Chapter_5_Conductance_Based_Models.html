@@ -1,0 +1,818 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chapter 5: Conductance Based Models &#8212; A Visual Introduction to Dynamical Neuroscience</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="shortcut icon" href="_static/logo.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Chapter 4: An Introduction to Dynamical Systems Theory" href="Chapter_4_An_Introduction_to_DST.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">A Visual Introduction to Dynamical Neuroscience</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Welcome to the Course
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Prolegomena.html">
+   Prolegomena: The Mathematical Modeling of Nature
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Chapter_1_A_Neurobiology_Primer.html">
+   Chapter 1: A Neurobiology Primer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Chapter_2_Bioelectricity.html">
+   Chapter 2: Bioelectricity
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Chapter_3_A_Calculus_and_Linear_Algebra_Primer.html">
+   Chapter 3: A Calculus and Linear Algebra Primer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Chapter_4_An_Introduction_to_DST.html">
+   Chapter 4: An Introduction to Dynamical Systems Theory
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Chapter 5: Conductance Based Models
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        <a class="dropdown-buttons"
+            href="_sources/Chapter_5_Conductance_Based_Models.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/Chapter_5_Conductance_Based_Models.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/Chapter_5_Conductance_Based_Models.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-point-neuron-vs-multi-compartment-models">
+   The Point Neuron vs. Multi-Compartment Models
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rc-circuits-and-the-passive-neuron">
+   RC Circuits and The Passive Neuron
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#adding-in-active-conductances-yields-excitability">
+   Adding in Active Conductances Yields Excitability
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#voltage-gated-ionic-currents-the-hodgkin-huxley-way">
+     Voltage-Gated Ionic Currents the Hodgkin-Huxley Way
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#excitiability-and-the-action-potential">
+     Excitiability and the Action Potential
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#from-excitability-to-oscillations-tonic-spiking-and-bursting">
+   From Excitability to Oscillations: Tonic Spiking and Bursting
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-note-on-bifurcations">
+     A Note on Bifurcations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tonic-spiking">
+     Tonic Spiking
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bursting">
+     Bursting
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="chapter-5-conductance-based-models">
+<h1>Chapter 5: Conductance Based Models<a class="headerlink" href="#chapter-5-conductance-based-models" title="Permalink to this headline">¶</a></h1>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>This book was initially prepared on short notice and is an ongoing, ever-evolving project. Many of the ideas, simulations, and visualizations here are incomplete, and most are missing citations. If you feel that I have neglected to cite the proper sources, please do not be offended. It is more than likely that I am in the processes of adding the relevant citations.</p>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Scientific computing</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Web friendly plotting with Bokeh</span>
+<span class="kn">from</span> <span class="nn">bokeh.models</span> <span class="kn">import</span> <span class="n">ColorBar</span><span class="p">,</span> <span class="n">ColumnDataSource</span><span class="p">,</span> <span class="n">Title</span><span class="p">,</span> <span class="n">BoxAnnotation</span><span class="p">,</span> <span class="n">Span</span><span class="p">,</span> <span class="n">Legend</span><span class="p">,</span> <span class="n">LabelSet</span><span class="p">,</span> <span class="n">CategoricalColorMapper</span>
+<span class="kn">from</span> <span class="nn">bokeh.palettes</span> <span class="kn">import</span> <span class="n">Viridis256</span><span class="p">,</span> <span class="n">Magma256</span><span class="p">,</span> <span class="n">Turbo256</span><span class="p">,</span> <span class="n">Cividis256</span><span class="p">,</span> <span class="n">Colorblind</span>
+<span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">figure</span><span class="p">,</span> <span class="n">output_file</span><span class="p">,</span> <span class="n">show</span>
+<span class="kn">from</span> <span class="nn">bokeh.transform</span> <span class="kn">import</span> <span class="n">linear_cmap</span><span class="p">,</span> <span class="n">cumsum</span><span class="p">,</span> <span class="n">CumSum</span>
+<span class="kn">from</span> <span class="nn">bokeh.layouts</span> <span class="kn">import</span> <span class="n">row</span><span class="p">,</span> <span class="n">gridplot</span><span class="p">,</span> <span class="n">layout</span>
+<span class="kn">import</span> <span class="nn">bokeh.io</span>
+<span class="n">bokeh</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">output_notebook</span><span class="p">()</span>
+
+<span class="c1"># Matplotlib, for when Bokeh fails</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">ticker</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/noahguzman/anaconda3/lib/python3.7/site-packages/numpy/__init__.py:156: UserWarning: mkl-service package failed to import, therefore Intel(R) MKL initialization ensuring its correct out-of-the box operation under condition when Gnu OpenMP had already been loaded by Python process is not assured. Please install mkl-service package, see http://github.com/IntelPython/mkl-service
+  from . import _distributor_init
+</pre></div>
+</div>
+<div class="output text_html">
+<div class="bk-root">
+    <a href="https://bokeh.org" target="_blank" class="bk-logo bk-logo-small bk-logo-notebook"></a>
+    <span id="1002">Loading BokehJS ...</span>
+</div></div><script type="application/javascript">
+(function(root) {
+  function now() {
+    return new Date();
+  }
+
+  const force = true;
+
+  if (typeof root._bokeh_onload_callbacks === "undefined" || force === true) {
+    root._bokeh_onload_callbacks = [];
+    root._bokeh_is_loading = undefined;
+  }
+
+  const JS_MIME_TYPE = 'application/javascript';
+  const HTML_MIME_TYPE = 'text/html';
+  const EXEC_MIME_TYPE = 'application/vnd.bokehjs_exec.v0+json';
+  const CLASS_NAME = 'output_bokeh rendered_html';
+
+  /**
+   * Render data to the DOM node
+   */
+  function render(props, node) {
+    const script = document.createElement("script");
+    node.appendChild(script);
+  }
+
+  /**
+   * Handle when an output is cleared or removed
+   */
+  function handleClearOutput(event, handle) {
+    const cell = handle.cell;
+
+    const id = cell.output_area._bokeh_element_id;
+    const server_id = cell.output_area._bokeh_server_id;
+    // Clean up Bokeh references
+    if (id != null && id in Bokeh.index) {
+      Bokeh.index[id].model.document.clear();
+      delete Bokeh.index[id];
+    }
+
+    if (server_id !== undefined) {
+      // Clean up Bokeh references
+      const cmd_clean = "from bokeh.io.state import curstate; print(curstate().uuid_to_server['" + server_id + "'].get_sessions()[0].document.roots[0]._id)";
+      cell.notebook.kernel.execute(cmd_clean, {
+        iopub: {
+          output: function(msg) {
+            const id = msg.content.text.trim();
+            if (id in Bokeh.index) {
+              Bokeh.index[id].model.document.clear();
+              delete Bokeh.index[id];
+            }
+          }
+        }
+      });
+      // Destroy server and session
+      const cmd_destroy = "import bokeh.io.notebook as ion; ion.destroy_server('" + server_id + "')";
+      cell.notebook.kernel.execute(cmd_destroy);
+    }
+  }
+
+  /**
+   * Handle when a new output is added
+   */
+  function handleAddOutput(event, handle) {
+    const output_area = handle.output_area;
+    const output = handle.output;
+
+    // limit handleAddOutput to display_data with EXEC_MIME_TYPE content only
+    if ((output.output_type != "display_data") || (!Object.prototype.hasOwnProperty.call(output.data, EXEC_MIME_TYPE))) {
+      return
+    }
+
+    const toinsert = output_area.element.find("." + CLASS_NAME.split(' ')[0]);
+
+    if (output.metadata[EXEC_MIME_TYPE]["id"] !== undefined) {
+      toinsert[toinsert.length - 1].firstChild.textContent = output.data[JS_MIME_TYPE];
+      // store reference to embed id on output_area
+      output_area._bokeh_element_id = output.metadata[EXEC_MIME_TYPE]["id"];
+    }
+    if (output.metadata[EXEC_MIME_TYPE]["server_id"] !== undefined) {
+      const bk_div = document.createElement("div");
+      bk_div.innerHTML = output.data[HTML_MIME_TYPE];
+      const script_attrs = bk_div.children[0].attributes;
+      for (let i = 0; i < script_attrs.length; i++) {
+        toinsert[toinsert.length - 1].firstChild.setAttribute(script_attrs[i].name, script_attrs[i].value);
+        toinsert[toinsert.length - 1].firstChild.textContent = bk_div.children[0].textContent
+      }
+      // store reference to server id on output_area
+      output_area._bokeh_server_id = output.metadata[EXEC_MIME_TYPE]["server_id"];
+    }
+  }
+
+  function register_renderer(events, OutputArea) {
+
+    function append_mime(data, metadata, element) {
+      // create a DOM node to render to
+      const toinsert = this.create_output_subarea(
+        metadata,
+        CLASS_NAME,
+        EXEC_MIME_TYPE
+      );
+      this.keyboard_manager.register_events(toinsert);
+      // Render to node
+      const props = {data: data, metadata: metadata[EXEC_MIME_TYPE]};
+      render(props, toinsert[toinsert.length - 1]);
+      element.append(toinsert);
+      return toinsert
+    }
+
+    /* Handle when an output is cleared or removed */
+    events.on('clear_output.CodeCell', handleClearOutput);
+    events.on('delete.Cell', handleClearOutput);
+
+    /* Handle when a new output is added */
+    events.on('output_added.OutputArea', handleAddOutput);
+
+    /**
+     * Register the mime type and append_mime function with output_area
+     */
+    OutputArea.prototype.register_mime_type(EXEC_MIME_TYPE, append_mime, {
+      /* Is output safe? */
+      safe: true,
+      /* Index of renderer in `output_area.display_order` */
+      index: 0
+    });
+  }
+
+  // register the mime type if in Jupyter Notebook environment and previously unregistered
+  if (root.Jupyter !== undefined) {
+    const events = require('base/js/events');
+    const OutputArea = require('notebook/js/outputarea').OutputArea;
+
+    if (OutputArea.prototype.mime_types().indexOf(EXEC_MIME_TYPE) == -1) {
+      register_renderer(events, OutputArea);
+    }
+  }
+
+  
+  if (typeof (root._bokeh_timeout) === "undefined" || force === true) {
+    root._bokeh_timeout = Date.now() + 5000;
+    root._bokeh_failed_load = false;
+  }
+
+  const NB_LOAD_WARNING = {'data': {'text/html':
+     "<div style='background-color: #fdd'>\n"+
+     "<p>\n"+
+     "BokehJS does not appear to have successfully loaded. If loading BokehJS from CDN, this \n"+
+     "may be due to a slow or bad network connection. Possible fixes:\n"+
+     "</p>\n"+
+     "<ul>\n"+
+     "<li>re-rerun `output_notebook()` to attempt to load from CDN again, or</li>\n"+
+     "<li>use INLINE resources instead, as so:</li>\n"+
+     "</ul>\n"+
+     "<code>\n"+
+     "from bokeh.resources import INLINE\n"+
+     "output_notebook(resources=INLINE)\n"+
+     "</code>\n"+
+     "</div>"}};
+
+  function display_loaded() {
+    const el = document.getElementById("1002");
+    if (el != null) {
+      el.textContent = "BokehJS is loading...";
+    }
+    if (root.Bokeh !== undefined) {
+      if (el != null) {
+        el.textContent = "BokehJS " + root.Bokeh.version + " successfully loaded.";
+      }
+    } else if (Date.now() < root._bokeh_timeout) {
+      setTimeout(display_loaded, 100)
+    }
+  }
+
+
+  function run_callbacks() {
+    try {
+      root._bokeh_onload_callbacks.forEach(function(callback) {
+        if (callback != null)
+          callback();
+      });
+    } finally {
+      delete root._bokeh_onload_callbacks
+    }
+    console.debug("Bokeh: all callbacks have finished");
+  }
+
+  function load_libs(css_urls, js_urls, callback) {
+    if (css_urls == null) css_urls = [];
+    if (js_urls == null) js_urls = [];
+
+    root._bokeh_onload_callbacks.push(callback);
+    if (root._bokeh_is_loading > 0) {
+      console.debug("Bokeh: BokehJS is being loaded, scheduling callback at", now());
+      return null;
+    }
+    if (js_urls == null || js_urls.length === 0) {
+      run_callbacks();
+      return null;
+    }
+    console.debug("Bokeh: BokehJS not loaded, scheduling load and callback at", now());
+    root._bokeh_is_loading = css_urls.length + js_urls.length;
+
+    function on_load() {
+      root._bokeh_is_loading--;
+      if (root._bokeh_is_loading === 0) {
+        console.debug("Bokeh: all BokehJS libraries/stylesheets loaded");
+        run_callbacks()
+      }
+    }
+
+    function on_error(url) {
+      console.error("failed to load " + url);
+    }
+
+    for (let i = 0; i < css_urls.length; i++) {
+      const url = css_urls[i];
+      const element = document.createElement("link");
+      element.onload = on_load;
+      element.onerror = on_error.bind(null, url);
+      element.rel = "stylesheet";
+      element.type = "text/css";
+      element.href = url;
+      console.debug("Bokeh: injecting link tag for BokehJS stylesheet: ", url);
+      document.body.appendChild(element);
+    }
+
+    for (let i = 0; i < js_urls.length; i++) {
+      const url = js_urls[i];
+      const element = document.createElement('script');
+      element.onload = on_load;
+      element.onerror = on_error.bind(null, url);
+      element.async = false;
+      element.src = url;
+      console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
+      document.head.appendChild(element);
+    }
+  };
+
+  function inject_raw_css(css) {
+    const element = document.createElement("style");
+    element.appendChild(document.createTextNode(css));
+    document.body.appendChild(element);
+  }
+
+  
+  const js_urls = ["https://cdn.bokeh.org/bokeh/release/bokeh-2.4.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-gl-2.4.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.4.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.4.1.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-mathjax-2.4.1.min.js"];
+  const css_urls = [];
+  
+
+  const inline_js = [
+    function(Bokeh) {
+      Bokeh.set_log_level("info");
+    },
+    function(Bokeh) {
+    
+    
+    }
+  ];
+
+  function run_inline_js() {
+    
+    if (root.Bokeh !== undefined || force === true) {
+      
+    for (let i = 0; i < inline_js.length; i++) {
+      inline_js[i].call(root, root.Bokeh);
+    }
+    if (force === true) {
+        display_loaded();
+      }} else if (Date.now() < root._bokeh_timeout) {
+      setTimeout(run_inline_js, 100);
+    } else if (!root._bokeh_failed_load) {
+      console.log("Bokeh: BokehJS failed to load within specified timeout.");
+      root._bokeh_failed_load = true;
+    } else if (force !== true) {
+      const cell = $(document.getElementById("1002")).parents('.cell').data().cell;
+      cell.output_area.append_execute_result(NB_LOAD_WARNING)
+    }
+
+  }
+
+  if (root._bokeh_is_loading === 0) {
+    console.debug("Bokeh: BokehJS loaded, going straight to plotting");
+    run_inline_js();
+  } else {
+    load_libs(css_urls, js_urls, function() {
+      console.debug("Bokeh: BokehJS plotting callback run at", now());
+      run_inline_js();
+    });
+  }
+}(window));</script><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>In /home/noahguzman/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/stylelib/_classic_test.mplstyle: 
+The text.latex.preview rcparam was deprecated in Matplotlib 3.3 and will be removed two minor releases later.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>In /home/noahguzman/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/stylelib/_classic_test.mplstyle: 
+The mathtext.fallback_to_cm rcparam was deprecated in Matplotlib 3.3 and will be removed two minor releases later.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>In /home/noahguzman/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/stylelib/_classic_test.mplstyle: Support for setting the &#39;mathtext.fallback_to_cm&#39; rcParam is deprecated since 3.3 and will be removed two minor releases later; use &#39;mathtext.fallback : &#39;cm&#39; instead.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>In /home/noahguzman/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/stylelib/_classic_test.mplstyle: 
+The validate_bool_maybe_none function was deprecated in Matplotlib 3.3 and will be removed two minor releases later.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>In /home/noahguzman/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/stylelib/_classic_test.mplstyle: 
+The savefig.jpeg_quality rcparam was deprecated in Matplotlib 3.3 and will be removed two minor releases later.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>In /home/noahguzman/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/stylelib/_classic_test.mplstyle: 
+The keymap.all_axes rcparam was deprecated in Matplotlib 3.3 and will be removed two minor releases later.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>In /home/noahguzman/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/stylelib/_classic_test.mplstyle: 
+The animation.avconv_path rcparam was deprecated in Matplotlib 3.3 and will be removed two minor releases later.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>In /home/noahguzman/anaconda3/lib/python3.7/site-packages/matplotlib/mpl-data/stylelib/_classic_test.mplstyle: 
+The animation.avconv_args rcparam was deprecated in Matplotlib 3.3 and will be removed two minor releases later.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="toggle docutils container">
+<div class="math notranslate nohighlight">
+\[
+\require{color}
+% Colorblind pallette
+\definecolor{Indigo}{RGB}{51, 34, 136}
+\definecolor{Cyan}{RGB}{136, 204, 238}
+\definecolor{Teal}{RGB}{68, 170, 153}
+\definecolor{Green}{RGB}{17, 119, 51}
+\definecolor{Olive}{RGB}{153, 153, 51}
+\definecolor{Sand}{RGB}{221, 204, 119}
+\definecolor{Rose}{RGB}{204, 102, 119}
+\definecolor{Wine}{RGB}{136, 34, 85}
+\definecolor{Purple}{RGB}{170, 68, 153}
+\]</div>
+</div>
+<div class="section" id="the-point-neuron-vs-multi-compartment-models">
+<h2>The Point Neuron vs. Multi-Compartment Models<a class="headerlink" href="#the-point-neuron-vs-multi-compartment-models" title="Permalink to this headline">¶</a></h2>
+<p>Let’s recall the complexity of neuronal morphology. Many neurons have dendritic trees and axons with many branches. Though it is possible to construct neuron models that take this complexity into account, we will not be doing so in this course since these models are high dimensional, and with high dimensional models we lose many of the visual tools available to us for making sense of dynamical systms. The general approach to biologically realistic neuron models is to break up the neuron (cell body, dendrites, axon) into many little compartments (hence why these models are called <em>multi-comparment</em> models), each with its own distribution of ion channels. The ionic currents within these compartments and the currents flowing between compartments (treated as electrical synapses) are then studied. In this chapter, we will be focusing on <em>point neuron</em> models, or models with a single compartment lumping the soma, dendrites, and axon together.</p>
+<div class="figure align-default" id="multi-comp">
+<img alt="_images/multi_comp.png" src="_images/multi_comp.png" />
+<p class="caption"><span class="caption-number">Fig. 23 </span><span class="caption-text">(A) A drawing of a real neuron. (B) The same neuron abstracted into multiple compartments. In a dynamical model, each compartment would have its own membrane potential and set of ionic currents, and the current between each compartment would be modeled as an electrical synapse, as in (D) where we see that we can conceive of each compartment as a single point neuron, and connections between compartments as gap junctions between point neurons. In (C), we see a two compartment model where only the soma and dendritic tree are taken into consideration.</span><a class="headerlink" href="#multi-comp" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="rc-circuits-and-the-passive-neuron">
+<h2>RC Circuits and The Passive Neuron<a class="headerlink" href="#rc-circuits-and-the-passive-neuron" title="Permalink to this headline">¶</a></h2>
+<p>Just as fixed point dynamics are the simplest behavior a dynamical system can exhibit, the simplest model of a neuron is one that exhibits only fixed point dynamics. Imagine a neuron with no active conductances, only a single passive one that is not sensitive to voltage or any other variable. In electrophysiology, <em>active</em> and <em>passive</em> have different meanings than they do in electrical circuit terminology. By <em>active conductance</em>, we just mean an element of the cell that conducts ions across the membrane and is sensitive to some variable such as the membrane potential. Any conductance that is not sensitive to some cellular variable is <em>passive</em>.</p>
+<p>A passive conductance will typically have its own corresponding reversal potential and is often referred to as a <em>leak channel</em> since current “leaks” out of it passively. We can model leak currents as Ohmic currents:</p>
+<div class="math notranslate nohighlight">
+\[ I_{leak} = g_{leak} \left [V_m - E_{leak} \right ] \]</div>
+<p>Such leak channels are usually used to account for unidentified current sources in a neuron. We can model a neuron having only a single passive conductance as resistor-capacitor (RC) circuit.</p>
+<p>How should we model such as passive neuron? Recall the capacitor equation from the second chapter:</p>
+<div class="math notranslate nohighlight">
+\[ C_m V_m = Q_m \]</div>
+<p>where <span class="math notranslate nohighlight">\(Q_m\)</span> is the total charge built up on either side of the membrane, <span class="math notranslate nohighlight">\(C_m\)</span> is the membrane capacitance, and <span class="math notranslate nohighlight">\(V_m\)</span> is the membrane potential. Just as Newton’s second law gives us a law describing how an object’s velocity changes, we need a law that tells us how the membrane potential of a neuron changes. The capacitor equation provides us with a way to such a law. Since we are interested in how the membrane potential changes in time, lets take the time derivative of the capacitor equation:</p>
+<div class="math notranslate nohighlight">
+\[ \frac{d}{dt} \left [ C_m V_m \right ] = C_m \frac{dV_m}{dt} = \frac{dQ_m}{dt} \]</div>
+<p>The time derivative of the charge is just the total ionic current across the membrane, <span class="math notranslate nohighlight">\(I_m\)</span>. The total current across the membrane is just the sum of the all the ionic currents in the cell:</p>
+<div class="math notranslate nohighlight">
+\[ I_m = \sum_j I_j(x_1, x_2, ... , x_n) = \sum_j g_j(x_1, x_2, ... , x_n) \left [V_m - E_j \right ]\]</div>
+<p>The total current across the membrane in this case is just the current from the leak channel plus any current we might want to inject into the cell with an electrode, so adopting the dot notation for time derivatives (<span class="math notranslate nohighlight">\(\dot{x} = dx/dt\)</span>), we can write the passive neuron model as follows:</p>
+<div class="math notranslate nohighlight">
+\[ C_m \dot{V}_m = g_{leak} \left [V_m - E_{leak} \right ] + I_{inj}\]</div>
+<p>where <span class="math notranslate nohighlight">\(I_{inj}\)</span> refers to the current injected by an electrode. If we inject steps of current into the cell, we can witness the dynamics of the RC circuit comprising the passive neuron. First, the membrane potential of the cell rises exponentially to a steady state voltage <span class="math notranslate nohighlight">\(V_{\inf}\)</span>. This is an unstable fixed point of the model and the trajectory can only stay here while current is being injected (much in the same way that a pendulum can only stay in the upright position while it is being held there by someone). Second, once we stop injecting current, the membrane potential decays exponentially back to its resting state, the stable fixed point of the system.</p>
+<div class="figure align-default" id="rc-dynamics">
+<img alt="_images/rc_dynamics.jpg" src="_images/rc_dynamics.jpg" />
+<p class="caption"><span class="caption-number">Fig. 24 </span><span class="caption-text">A diagram illustrating the injected current step (top) and the membrane potential dynamics (bottom) of the passive neuron. The inset equations represent the exponential rise and decay of the voltage. The time constant of the dynamics is <span class="math notranslate nohighlight">\(\tau = C_m/g_{leak}\)</span>.</span><a class="headerlink" href="#rc-dynamics" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="adding-in-active-conductances-yields-excitability">
+<h2>Adding in Active Conductances Yields Excitability<a class="headerlink" href="#adding-in-active-conductances-yields-excitability" title="Permalink to this headline">¶</a></h2>
+<p>The fixed-point dynamics of the passive neuron don’t give us much insight into the interesting bioelectrical phenomena that have captivated neurophysiologists for centuries. We need models that are capable of reproducing the wide variety of neuronal dynamics observed across the many nervous systems of the animal kingdom. As you know from previous chapters, the missing ingredients in the passive neuron model are ion channels. Specifically, it is voltage-gated ion channels that contribute most to shaping the a neuron’s membrane potential dynamics. Though other kinds of ion channels, such as those gated by pressure or neurotransmitters, certainly contribute to the changes in the membrane potential, they generally do so only over slower timescales. Voltage-gated ion channels, on the other hand, can function across the entire spectrum of timescales. Fast variations of ionic currents are what create phenomena like spiking and bursting.</p>
+<p>Recall the formalism introduced in the second chapter for modeling ionic currents <span class="math notranslate nohighlight">\(I_j\)</span> where <span class="math notranslate nohighlight">\(j\)</span> is a label indicating the species of ion channel:</p>
+<div class="math notranslate nohighlight">
+\[I_j(x_1, x_2, ... , x_n) = g_j(x_1, x_2, ... , x_n)\left [ V_m - E_j  \right ]\]</div>
+<p>In the next section, we’ll focus on the Hodgkin-Huxley formalism for modeling voltage-gated ion channels, that is, ion channels whose conductance depends explicitly <em>only</em> on the membrane potential:</p>
+<div class="math notranslate nohighlight">
+\[I_j(V_m) = g_j(V_m)\left [ V_m - E_j  \right ]\]</div>
+<div class="section" id="voltage-gated-ionic-currents-the-hodgkin-huxley-way">
+<h3>Voltage-Gated Ionic Currents the Hodgkin-Huxley Way<a class="headerlink" href="#voltage-gated-ionic-currents-the-hodgkin-huxley-way" title="Permalink to this headline">¶</a></h3>
+<p>The innovation of Hodgkin and Huxley was to construct a purely functional (as opposed to mechanistic) model of ionic currents that depend on voltage. In the early 1950s, when Hodgkin and Huxley were first attempting to model the action potential, it was hypothesized that the rapid rise in the membrane potential seen during the action potential was due to rapid changes in the membranes permeability to different ions, causing rapid changes in the ionic currents flowing into and out of the membrane. Though we now know that it is ion channel conductivity and not membrane permeability that changes, we can model both possibilities in the same way if we ignore mechanisms and focus on developing a function that tells us how an ionic current depends the membrane potential.</p>
+<p>Hodgkin and Huxleys’ approach was to posit that every ionic current has a <em>maximal conductance</em> <span class="math notranslate nohighlight">\(\overline{g}_j\)</span>, with the actual conductance at any given voltage being some fraction of the maximal conductance and varying with the permeability of the membrane to that ion species. They hypothesized that this fraction <span class="math notranslate nohighlight">\(p_j\)</span> could be represented as a function of the membrane potential, <span class="math notranslate nohighlight">\(p_j(V_m)\)</span>. Hodgkin and Huxley didn’t know about ion channels when they were coming up with their model, but we now know it is not the permeability of the membrane but the proportion of open ion channels that varies with the voltage. The model for the ionic current would then be</p>
+<div class="math notranslate nohighlight">
+\[I_j(V_m) = \overline{g}_j p_j(V_m) \left [ V_m - E_j  \right ]\]</div>
+<p>Their next move was to introduce two kinds of variables called <em>gating variables</em>. One kind of gating variable, called an <em>activation gate</em> and represented by the function <span class="math notranslate nohighlight">\(m_j(V_m)\)</span>, increases the proportion of <em>open</em> ion channels over a range of voltages. The second kind of gating variable, called an <em>inactivation gate</em> and represented by the function <span class="math notranslate nohighlight">\(h_j(V_m)\)</span>, increases the proportion of <em>closed</em> ion channels over a range of voltages. Hodgkin and Huxley proposed that the function <span class="math notranslate nohighlight">\(p_j(V_m)\)</span> would be some curve dependent on these gating variables:</p>
+<div class="math notranslate nohighlight">
+\[p_j(V_m) = m_j^p(V_m)h_j^q(V_m)\]</div>
+<p>The exponents <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(q\)</span> arise as follows: Hodgkin and Huxley knew that some chemical reaction was responsible for changing ionic conductivity, and even though they were not aware of ion channels or their biophysics, they conceived of the gating variables as chemical agents in that reaction. From the theory of chemical kinetics, they knew that the combination of sigmoidal and exponential curves they had observed for <span class="math notranslate nohighlight">\(p_j(V_m)\)</span> could be fit by adding the exponents <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(q\)</span> as parameters of their model. They ended up with a final model of the ionic current that looks as follows:</p>
+<div class="math notranslate nohighlight">
+\[I(V_m) = \overline{g}_j m_j^p(V_m)h_j^q(V_m)\left [ V_m - E_j  \right ]\]</div>
+<p>For Hodgkin and Huxley, the exponents <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(q\)</span> were just parameters to help fit the <span class="math notranslate nohighlight">\(p_j(V_m)\)</span> curves to experimental data, but we now know that each ion channel species has a certain number of amino acid components that serve as the activation and inactivation gates; the exponent <span class="math notranslate nohighlight">\(p\)</span> corresponds to the number of activation gates for each ion channel, while the exponent <span class="math notranslate nohighlight">\(q\)</span> corresponds to the number of inactivation gates.</p>
+<p>Recalling our passive neuron model, we can simply sum each of these ionic currents to obtain the total current, giving us a model for how the membrane potential changes in time in the presence of multiple species of ion channels:</p>
+<div class="math notranslate nohighlight">
+\[ C\dot{V}_m = \sum_j \overline{g}_j m_j^p(V_m)h_j^q(V_m)\left [ V_m - E_j  \right ]\]</div>
+<p>Neuronal models that take this form are referred to as <em>conductance based models</em> or <em>Hodgkin-Huxley models</em>.</p>
+<div class="figure align-default" id="hh-chan">
+<img alt="_images/hh_chan.png" src="_images/hh_chan.png" />
+<p class="caption"><span class="caption-number">Fig. 25 </span><span class="caption-text">An abstract representation of the activation and inactivation mechanisms of a voltage-gated ion channel. As the membrane potential changes, the voltage sensor changes conformation, opening the channel’s activation gate. Soon, the inactivation gate moves to plug the open channel and won’t be released until the voltage changes again.</span><a class="headerlink" href="#hh-chan" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="excitiability-and-the-action-potential">
+<h3>Excitiability and the Action Potential<a class="headerlink" href="#excitiability-and-the-action-potential" title="Permalink to this headline">¶</a></h3>
+<p>Once you add one or more of these active ionic conductances to a neuron model, you start to get more interesting dynamics. The phenomenon that Hodgkin and Huxley originally set out to model was the action potential. As we have discussed previously, the action potential is a rapid, large deviation of the membrane potential towards more positive (<em>depolarized</em>) values, often in response to inputs from other neurons.</p>
+<p>Neurons exhibiting single action potentials in response to stimulation can be modeled as dynamical systems with the property of <em>excitability</em>. Excitable dynamical systems are systems with one stable fixed point and a vector field such that for some small neighborhood around the fixed point, there is at least one trajectory starting in that neighborhood which leaves the neighborhood and then returns to the fixed point. This excursion from the neighborhood around the stable fixed point (the “resting state” of the neuron) constitutes an action potential.</p>
+<p>Notice that we haven’t said anything specifically about what the vector field of an excitable system looks like, and this is because there can be a lot of variability in the vector field. The excursion of a trajectory from the neighborhood of the fixed point may be large or small, and there may even be subthreshold oscillations as the trajectory decays back to the fixed point (subthreshold oscillations are much like the decaying oscillations one sees in a damped spring-mass system).</p>
+<p>Excitable systems, having a stable fixed point, are usually found at that fixed point. Therefore, to exhibit excursions away from the fixed point, they must be perturbed by some form of input. That input could be current injected through an electrode or synaptic communication. Normally, once we start thinking about time varying inputs to a system, we have to move into the realm of <em>non-autonomous</em> dynamical systems. But in the case of simple step-inputs, we can simplify things by conceiving of such perturbations not as changing the vector field of the system, but merely shifting the initial conditions. So what the inputs do in this case is shift the initial conditions of the system away from the stable fixed point into the neighborhood around it from which it then departs.</p>
+<div class="figure align-default" id="excit">
+<img alt="_images/excit.png" src="_images/excit.png" />
+<p class="caption"><span class="caption-number">Fig. 26 </span><span class="caption-text">A diagram illustrating the difference between excitability and oscillatory activity. In the excitable system on the left, trajectories starting in a neighborhood around a stable fixed point make an excursion before returning to the fixed point. On the right, the oscillatory system has a stable limit cycle instead.</span><a class="headerlink" href="#excit" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="from-excitability-to-oscillations-tonic-spiking-and-bursting">
+<h2>From Excitability to Oscillations: Tonic Spiking and Bursting<a class="headerlink" href="#from-excitability-to-oscillations-tonic-spiking-and-bursting" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="a-note-on-bifurcations">
+<h3>A Note on Bifurcations<a class="headerlink" href="#a-note-on-bifurcations" title="Permalink to this headline">¶</a></h3>
+<p>We will talk about bifurcations at length in a later chapter, but we need to say a piece about them now so that we can better understand the link between excitability and oscillatory phenomena in neurons. Every dynamical system has parameters of some sort. For example, in the Hodgkin-Huxley models we introduced earlier, the membrane capacitance <span class="math notranslate nohighlight">\(C_m\)</span>, the reversal potentials <span class="math notranslate nohighlight">\(E_j\)</span>, and the maximal conductances <span class="math notranslate nohighlight">\(\overline{g}_j\)</span> serve as parameters. Parameters are values in a model that don’t change in time; once we fix the values of parameters, we have fixed the model.</p>
+<p>If we change parameters, we alter the vector field associated with the model. We can imagine parameters as dials that we can twist, and as we twist the dials, we change the shape of the vector field and therefore the possible dynamics of the model. In many models, if we change one or more of the parameters enough, we will see a qualitative transformation of the vector field, resulting in a change in the number of equilibria. Any change in one or more parameters of a model leading to a qualitative transformation of the dynamical system’s vector field that results in change in the number of equilibria is called a <em>bifurcation</em>. For example, a system that loses or gains a fixed point as one of its parameters is varied is undergoing a bifurcation.</p>
+<div class="figure align-default" id="sn-bif">
+<img alt="_images/sn_bifurcation.gif" src="_images/sn_bifurcation.gif" />
+<p class="caption"><span class="caption-number">Fig. 27 </span><span class="caption-text">An illustration of a bifurcation in a one-dimensional system. On the horizontal axis is the state of the system, <span class="math notranslate nohighlight">\(x\)</span>, while on the vertical axis is the time derivative of the system, <span class="math notranslate nohighlight">\(v = dx/dt\)</span>. As a parameter <span class="math notranslate nohighlight">\(\epsilon\)</span> of the system changes, the curve representing the velocity shifts up and down, causing the vector field to change and introducing or removing two fixed points, one stable (red) and the other unstable (green).</span><a class="headerlink" href="#sn-bif" title="Permalink to this image">¶</a></p>
+</div>
+<p>It turns out that excitable dynamical systems are systems that are near bifurcations. If we sufficiently alter the parameters of an excitable system, we can cause those systems to undergo bifurcations, resulting in the appearance of new equilibria. In the next couple of sections, we’ll be introduced to two neuronal phenomena that depend on bifurcations of excitable systems, <em>tonic spiking</em> and <em>bursting</em>.</p>
+</div>
+<div class="section" id="tonic-spiking">
+<h3>Tonic Spiking<a class="headerlink" href="#tonic-spiking" title="Permalink to this headline">¶</a></h3>
+<p>Tonic spiking is simply the case when the large excursions seen in single action potentials become part of a stable limit cycle. Then the cell will spike repeatedly for an indefinite amount of time. Some excitable systems can undergo a bifurcation that either reveals a new stable limit cycle or stabilizes a previously unstable limit cycle, leading to tonic spiking. Some systems can even exhibit <em>bistability</em>, where a stable fixed point coexists with a stable limit cycle, and input to the system can switch the dynamics between the two equilibria.</p>
+</div>
+<div class="section" id="bursting">
+<h3>Bursting<a class="headerlink" href="#bursting" title="Permalink to this headline">¶</a></h3>
+<p>Bursting is a phenomena in which a neuron releases a finite sequence of spikes called a <em>burst</em>, before decaying back to a resting state. Bursting requires multiple bifurcations: first, a bifurcation from the resting state into the spiking state, and then another bifurcation from the spiking state into the resting state. We’ll talk in greater depth about bursting when we get into the math of bifurcations.</p>
+<div class="figure align-default" id="burst-tonic">
+<img alt="_images/burst_tonic.png" src="_images/burst_tonic.png" />
+<p class="caption"><span class="caption-number">Fig. 28 </span><span class="caption-text">A diagram illustrating different firing patterns of neurons. <em>Tonic</em> indicates continuous bursts or spikes, while <em>phasic</em> indicates a single burst or spike.</span><a class="headerlink" href="#burst-tonic" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="Chapter_4_An_Introduction_to_DST.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Chapter 4: An Introduction to Dynamical Systems Theory</p>
+        </div>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Noah Guzmán<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
